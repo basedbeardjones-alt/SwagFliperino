@@ -127,7 +127,7 @@ def ge_post_tax_price(item_id: int, price: int) -> int:
         return p
 
     iid = int(item_id)
-    if iid in GE_TAX_EXEMPT_ITEM_IDS:
+    if iid in GE_TAX_EXEMPT_ITEMS:
         return p
 
     # Official GE tax cap behavior: for very expensive items, tax is capped.
@@ -200,7 +200,33 @@ DB_PATH = os.getenv("SWAGFLIP_DB_PATH", "swagflip.db")
 DASH_TOKEN = os.getenv("SWAGFLIP_DASH_TOKEN", "").strip()
 
 # Logging
-_default_log = os.path.join(os.path.expanduser("~"), "Desktop", "swagflip_server.txt")
+def _desktop_dir_candidates() -> List[str]:
+    candidates: List[str] = []
+    home = os.path.expanduser("~")
+    if home:
+        candidates.append(os.path.join(home, "Desktop"))
+    for key in ("USERPROFILE", "OneDrive", "OneDriveConsumer", "OneDriveCommercial"):
+        base = os.getenv(key)
+        if base:
+            candidates.append(os.path.join(base, "Desktop"))
+    # De-duplicate while preserving order
+    seen: Set[str] = set()
+    ordered: List[str] = []
+    for c in candidates:
+        if c and c not in seen:
+            seen.add(c)
+            ordered.append(c)
+    return ordered
+
+def _default_desktop_dir() -> str:
+    for cand in _desktop_dir_candidates():
+        if os.path.exists(cand):
+            return cand
+    # Fall back to ~/Desktop even if it doesn't exist yet
+    home = os.path.expanduser("~")
+    return os.path.join(home, "Desktop") if home else os.getcwd()
+
+_default_log = os.path.join(_default_desktop_dir(), "swagflip_server.txt")
 LOG_PATH = os.getenv("SWAGFLIP_LOG_PATH", _default_log)
 LOG_LEVEL = os.getenv("SWAGFLIP_LOG_LEVEL", "INFO").upper()
 LOG_MAX_BYTES = int(os.getenv("SWAGFLIP_LOG_MAX_BYTES", str(5 * 1024 * 1024)))
@@ -415,6 +441,29 @@ _NAME_NORM_RE = re.compile(r"\s+")
 def _norm_name(s: str) -> str:
     return _NAME_NORM_RE.sub(" ", (s or "").strip().lower())
 
+def _resolve_csv_path(path: str) -> str:
+    if not path:
+        return ""
+    raw = os.path.expandvars(os.path.expanduser(path.strip()))
+    if os.path.isabs(raw) and os.path.exists(raw):
+        return raw
+
+    candidates: List[str] = []
+    if os.path.isabs(raw):
+        candidates.append(raw)
+    else:
+        here = os.path.dirname(os.path.abspath(__file__))
+        candidates.append(os.path.join(here, raw))
+        candidates.append(os.path.join(os.getcwd(), raw))
+        for desk in _desktop_dir_candidates():
+            candidates.append(os.path.join(desk, raw))
+
+    for cand in candidates:
+        if cand and os.path.exists(cand):
+            return cand
+
+    return raw
+
 def _parse_winning_flips_csv(path: str) -> Dict[str, Dict[str, Any]]:
     """
     Parse DaityasPls.csv-style exports:
@@ -560,20 +609,11 @@ def _init_winners_from_mapping(mapping: Dict[int, "ItemMeta"]) -> None:
         logger.info("[GOODCSV] disabled")
         return
 
-    # Resolve CSV path relative to server file first, then CWD.
-    csv_path = (GOOD_CSV_PATH or "").strip()
+    # Resolve CSV path relative to server file, CWD, and Desktop fallbacks.
+    csv_path = _resolve_csv_path((GOOD_CSV_PATH or "").strip())
     if not csv_path:
         logger.info("[GOODCSV] no path set")
         return
-
-    if not os.path.isabs(csv_path):
-        here = os.path.dirname(os.path.abspath(__file__))
-        cand1 = os.path.join(here, csv_path)
-        cand2 = os.path.join(os.getcwd(), csv_path)
-        if os.path.exists(cand1):
-            csv_path = cand1
-        elif os.path.exists(cand2):
-            csv_path = cand2
 
     if not os.path.exists(csv_path):
         logger.info(f"[GOODCSV] file not found: {csv_path}")
@@ -1043,7 +1083,7 @@ def seller_tax(price: int, item_id: Optional[int] = None) -> int:
     if p < GE_TAX_FREE_UNDER_PRICE:
         return 0
 
-    if item_id is not None and int(item_id) in GE_TAX_EXEMPT_ITEM_IDS:
+    if item_id is not None and int(item_id) in GE_TAX_EXEMPT_ITEMS:
         return 0
 
     if p >= MAX_PRICE_FOR_GE_TAX:
@@ -3620,94 +3660,68 @@ def suggestion():
                 return int(price_hint), False
 
 
-            conn = get_db()
-
-            try:
-
-                # Ledger presence (items previously seen by the bot) — prefer selling UNKNOWN (not on ledger) items first.
+            with _db_lock:
+                conn = db_connect()
                 try:
-                    ledger_iids: Set[int] = set()
-                    for (x,) in conn.execute("SELECT DISTINCT item_id FROM lots").fetchall():
-                        try:
-                            ledger_iids.add(int(x))
-                        except Exception:
-                            pass
-                    for (x,) in conn.execute("SELECT DISTINCT item_id FROM buy_fills").fetchall():
-                        try:
-                            ledger_iids.add(int(x))
-                        except Exception:
-                            pass
-                except Exception:
-                    ledger_iids = set()
-                for iid, qty in sorted(
-                    inv.items(),
-                    key=lambda kv: (0 if kv[0] not in ledger_iids else 1, -int(kv[1])),
-                ):
+                    # Ledger presence (items previously seen by the bot) — prefer selling UNKNOWN (not on ledger) items first.
+                    try:
+                        ledger_iids: Set[int] = set()
+                        for (x,) in conn.execute("SELECT DISTINCT item_id FROM lots").fetchall():
+                            try:
+                                ledger_iids.add(int(x))
+                            except Exception:
+                                pass
+                        for (x,) in conn.execute("SELECT DISTINCT item_id FROM buy_fills").fetchall():
+                            try:
+                                ledger_iids.add(int(x))
+                            except Exception:
+                                pass
+                    except Exception:
+                        ledger_iids = set()
 
-                    if iid in active_iids:
+                    for iid, qty in sorted(
+                        inv.items(),
+                        key=lambda kv: (0 if kv[0] not in ledger_iids else 1, -int(kv[1])),
+                    ):
+                        if iid in active_iids:
+                            continue
 
-                        continue
+                        name = item_name_safe(iid)
+                        low, high = latest_low_high(iid)
 
-                    name = item_name_safe(iid)
+                        # Sell inventory fast: aim at current "low" (insta-sell). If missing, fall back to high.
+                        sell_p = int((high - SELL_UNDERCUT_GP) if (high and high > 0) else ((low or 0) if (low and low > 0) else 1))
+                        sell_p = max(1, sell_p)
 
-                    low, high = latest_low_high(iid)
+                        basis, basis_known = _basis_from_history(conn, iid, sell_p)
 
-                    # Sell inventory fast: aim at current "low" (insta-sell). If missing, fall back to high.
+                        if (not basis_known) and (not AUTO_SELL_UNKNOWN_BASIS):
+                            logger.info("[INV] skip unknown basis (manual): %s x%s | sell_p=%s", name, qty, sell_p)
+                            continue
 
-                    sell_p = int((high - SELL_UNDERCUT_GP) if (high and high > 0) else ((low or 0) if (low and low > 0) else 1))
+                        post_tax = ge_post_tax_price(iid, sell_p)
+                        est_profit_total = (post_tax - basis) * int(qty)
 
-                    sell_p = max(1, sell_p)
+                        if basis_known and est_profit_total < -MAX_INVENTORY_LOSS_GP:
+                            logger.info("[INV] leave for manual: %s x%s | est_profit=%s (loss>%s)", name, qty, est_profit_total, MAX_INVENTORY_LOSS_GP)
+                            continue
 
-
-                    basis, basis_known = _basis_from_history(conn, iid, sell_p)
-
-                    if (not basis_known) and (not AUTO_SELL_UNKNOWN_BASIS):
-                        logger.info("[INV] skip unknown basis (manual): %s x%s | sell_p=%s", name, qty, sell_p)
-                        continue
-
-                    post_tax = ge_post_tax_price(iid, sell_p)
-
-                    est_profit_total = (post_tax - basis) * int(qty)
-
-
-                    if basis_known and est_profit_total < -MAX_INVENTORY_LOSS_GP:
-
-                        logger.info("[INV] leave for manual: %s x%s | est_profit=%s (loss>%s)", name, qty, est_profit_total, MAX_INVENTORY_LOSS_GP)
-
-                        continue
-
-
-                    action = build_sell(
-
-                        box_id=int(empty_slot_id),
-
-                        item_id=iid,
-
-                        name=name,
-
-                        price=sell_p,
-
-                        qty=max(1, int(qty)),
-
-                        exp_profit=int(est_profit_total),
-
-                        exp_min=0,
-
-                        note=("inventory sell (fast)" + ("" if est_profit_total >= 0 else " — small loss ok")),
-
-                    )
-
-                    return _reply_suggestion(action)
-
-            finally:
-
-                try:
-
-                    conn.close()
-
-                except Exception:
-
-                    pass
+                        action = build_sell(
+                            box_id=int(empty_slot_id),
+                            item_id=iid,
+                            name=name,
+                            price=sell_p,
+                            qty=max(1, int(qty)),
+                            exp_profit=int(est_profit_total),
+                            exp_min=0,
+                            note=("inventory sell (fast)" + ("" if est_profit_total >= 0 else " — small loss ok")),
+                        )
+                        return _reply_suggestion(action)
+                finally:
+                    try:
+                        conn.close()
+                    except Exception:
+                        pass
 
 
         # keep marker line below
@@ -3774,7 +3788,8 @@ def suggestion():
                     rej("blocked"); continue
                 if item_id in active_ids:
                     rej("already_active"); continue
-                if item_id not in mapping:
+                meta = mapping.get(item_id)
+                if meta is None:
                     rej("no_mapping"); continue
 
                 daily_vol = volumes.get(item_id)
@@ -3808,7 +3823,7 @@ def suggestion():
                         rej("roi_too_low"); continue
                     if roi > MAX_ROI:
                         rej("roi_too_high"); continue
-# Quantity sizing: cap quantity so it should fill quickly based on 24h volume
+                    # Quantity sizing: cap quantity so it should fill quickly based on 24h volume
                     qty_budget = int(per_slot_budget // max(1, buy_price))
                     if qty_budget <= 0:
                         rej("qty_zero_budget"); continue
