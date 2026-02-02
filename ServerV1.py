@@ -3622,8 +3622,10 @@ def suggestion():
                     if low < MIN_BUY_PRICE:
                         rej("below_min_buy_price"); continue
 
-                    buy_price = max(low + BUY_OVERBID_GP, 1)
-                    sell_price = max(high - SELL_UNDERCUT_GP, buy_price + 1)
+                    buy_price = low
+                    sell_price = max(high - 1, 1)
+                    if sell_price <= buy_price:
+                        sell_price = buy_price + 1
 
                     # Aggressive cross model: profit + speed via 24h volume
                     margin = sell_price - buy_price
@@ -3639,38 +3641,43 @@ def suggestion():
                         rej("roi_too_low"); continue
                     if roi > MAX_ROI:
                         rej("roi_too_high"); continue
-                    # Quantity sizing: cap quantity so it should fill quickly based on 24h volume
-                    qty_budget = int(per_slot_budget // max(1, buy_price))
-                    if qty_budget <= 0:
+                    qty = int(per_slot_budget // max(1, buy_price))
+                    if qty <= 0:
                         rej("qty_zero_budget"); continue
 
-                    per_min = daily_vol / 1440.0
-                    qty_speed_cap = max(1, int(per_min * max(TARGET_FILL_MINUTES, 0.1) * max(FILL_FRACTION, 0.01)))
-                    qty = min(qty_budget, qty_speed_cap)
-
                     # Respect buy limit (4h)
-                    lim = item_buy_limit(item_id) or 0
                     note = ""
+                    lim = 0
+                    if meta is not None and meta.limit is not None:
+                        lim = int(meta.limit)
+                    if lim <= 0:
+                        try:
+                            lim = item_buy_limit(item_id) or 0
+                        except Exception:
+                            lim = 0
                     if lim > 0:
-                        used = int(_buy_queue_used.get(item_id, 0))
-                        remaining = max(0, lim - used)
+                        with _db_lock:
+                            conn = db_connect()
+                            try:
+                                bought_in_window = db_bought_qty_in_window(conn, item_id, cutoff)
+                            finally:
+                                conn.close()
+                        remaining = lim - bought_in_window
                         if remaining <= 0:
-                            rej("limit_reached"); continue
-                        qty = min(qty, remaining)
-                        note = f"limit remaining {remaining}/{lim} (4h)"
+                            rej("buy_limit_reached_window"); continue
+                        if qty > remaining:
+                            qty = remaining
+                            note = f"limit remaining {remaining}/{lim} (4h)"
 
                     if qty <= 0:
-                        rej("qty_zero"); continue
+                        rej("qty_zero_limit"); continue
 
                     mins = estimate_minutes_from_daily(qty, daily_vol)
-                    if mins > (TARGET_FILL_MINUTES * 3.0):
+                    if mins > max_buy_mins:
                         rej("too_slow"); continue
 
                     expected_profit = profit_per * qty
-                    if expected_profit < MIN_TOTAL_PROFIT_GP:
-                        rej("min_total_profit"); continue
-
-                    speed_weight = 2.0 / math.sqrt(max(mins, 0.25))
+                    speed_weight = 1.7 / math.sqrt(max(mins, 0.25))
                     score = (expected_profit / max(mins, 0.25)) * speed_weight
                     # Prior boost from "good flips" CSV
                     if GOOD_CSV_ENABLED and _WINNER_ITEM_IDS and item_id in _WINNER_ITEM_IDS:
