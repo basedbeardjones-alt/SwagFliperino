@@ -10,3 +10,8 @@ codex.patch.py
 *.db
 *.log
 *.log.*
+
+# Codex patch files
+*.patch
+*.diff
+codex.patch.py
