@@ -1,4 +1,4 @@
-# server.py
+# ServerV1.py (rename to ServerV2.py/ServerV3.py as iterations land)
 # SwagFlip Brain — local copilot server for RuneLite plugin
 # - Suggestion engine + SQLite ledger (lots/trades/recs)
 # - Auto-migrates SQLite schema in-place (keeps history)
@@ -37,6 +37,12 @@ def _now() -> int:
 # ============================================================
 # CONFIG
 # ============================================================
+# QUICK FLIP KNOBS (buy/sell filters + scoring)
+# - Volume filter: MIN_DAILY_VOLUME, MAX_DAILY_VOLUME
+# - ROI after tax band: MIN_ROI, MAX_ROI
+# - Per-item profit guards: MIN_MARGIN_GP, MIN_TOTAL_PROFIT_GP
+# - Speed/price nudges: TARGET_FILL_MINUTES, FILL_FRACTION, BUY_OVERBID_GP, SELL_UNDERCUT_GP
+# - Safety: MAX_INVENTORY_LOSS_GP
 HOST = os.getenv("SWAGFLIP_BIND_HOST", "127.0.0.1")
 PORT = int(os.getenv("SWAGFLIP_PORT", "5000"))
 
@@ -64,7 +70,7 @@ TREND_RECHECK_TOP_N = int(os.getenv("SWAGFLIP_TREND_TOP_N", "20"))
 
 MIN_BUY_PRICE = int(os.getenv("SWAGFLIP_MIN_BUY_PRICE", "1"))
 MIN_MARGIN_GP = int(os.getenv("SWAGFLIP_MIN_MARGIN_GP", "1"))
-MIN_TOTAL_PROFIT_GP = int(os.getenv("SWAGFLIP_MIN_TOTAL_PROFIT_GP", "5000"))
+MIN_TOTAL_PROFIT_GP = int(os.getenv("SWAGFLIP_MIN_TOTAL_PROFIT_GP", "1000"))
 MAX_INVENTORY_LOSS_GP = int(os.getenv("SWAGFLIP_MAX_INVENTORY_LOSS_GP", "50000"))
 
 # ============================================================
@@ -86,8 +92,8 @@ WINNER_EXTRA_BUY_BUMP = float(os.getenv("SWAGFLIP_WINNER_EXTRA_BUY_BUMP", "0.002
 
 # Aggressive fast-fill bump on buys (capped later so we don't pay away the whole spread)
 BUY_FAST_BUMP_PCT = float(os.getenv("SWAGFLIP_BUY_FAST_BUMP_PCT", "0.006"))
-MIN_ROI = float(os.getenv("SWAGFLIP_MIN_ROI", "0.0005"))
-MAX_ROI = float(os.getenv("SWAGFLIP_MAX_ROI", "0.40"))
+MIN_ROI = float(os.getenv("SWAGFLIP_MIN_ROI", "0.008"))
+MAX_ROI = float(os.getenv("SWAGFLIP_MAX_ROI", "0.02"))
 
 # Hard volume filter (avg daily volume)
 MIN_DAILY_VOLUME = int(os.getenv("SWAGFLIP_MIN_DAILY_VOLUME", "100000"))
@@ -3069,215 +3075,30 @@ def dashboard():
         return "Forbidden", 403
 
     try:
-        mapping, latest, volumes, last_refresh = prices.snapshot()
-
-        with _db_lock:
-            conn = db_connect()
-            try:
-                cur = conn.cursor()
-                cur.execute("SELECT COALESCE(SUM(profit), 0) AS p FROM realized_trades")
-                realized_profit = int(cur.fetchone()["p"])
-
-                cur.execute("SELECT COALESCE(SUM(qty * buy_price), 0) AS c FROM realized_trades")
-                realized_cost = int(cur.fetchone()["c"])
-
-                roi = (realized_profit / realized_cost) if realized_cost > 0 else 0.0
-
-                cur.execute("""SELECT COALESCE(SUM(qty_remaining * buy_price), 0) AS open_cost
-                               FROM lots WHERE qty_remaining > 0""")
-                open_cost_total = int(cur.fetchone()["open_cost"])
-
-                cur.execute("""
-                    SELECT item_id, item_name,
-                           SUM(qty_remaining) AS open_qty,
-                           SUM(qty_remaining * buy_price) AS open_cost
-                    FROM lots
-                    WHERE qty_remaining > 0
-                    GROUP BY item_id, item_name
-                    ORDER BY open_cost DESC
-                    LIMIT 200
-                """)
-                open_rows = [dict(x) for x in cur.fetchall()]
-
-                cur.execute("""
-                    SELECT trade_id, item_id, item_name, qty, buy_price, sell_price, sell_ts, profit
-                    FROM realized_trades
-                    ORDER BY sell_ts DESC
-                    LIMIT 100
-                """)
-                hist_rows = [dict(x) for x in cur.fetchall()]
-            finally:
-                conn.close()
-
-        with _last_status_lock:
-            st = dict(LAST_STATUS)
-        last_status_ts = int(st.get("updated_unix", 0))
-        coins = int(st.get("coins", 0))
-        offers = st.get("offers", []) or []
-
-        offer_rows_html = ""
-        for o in offers[:50]:
-            try:
-                status = str(o.get("status", "")).lower()
-                active = bool(o.get("active", False))
-                iid = int(o.get("item_id", 0))
-                box_id = int(o.get("box_id", 0))
-                price = int(o.get("price", 0))
-                total = int(o.get("amount_total", 0))
-                traded = int(o.get("amount_traded", 0))
-                gp_to_collect = int(o.get("gp_to_collect", 0))
-            except Exception:
-                continue
-            name = mapping[iid].name if iid in mapping else str(iid)
-            offer_rows_html += (
-                "<tr>"
-                f"<td>{box_id}</td>"
-                f"<td>{html_escape(status)}</td>"
-                f"<td>{'yes' if active else 'no'}</td>"
-                f"<td>{iid}</td>"
-                f"<td>{html_escape(name)}</td>"
-                f"<td>{price:,}</td>"
-                f"<td>{traded:,}/{total:,}</td>"
-                f"<td>{gp_to_collect:,}</td>"
-                "</tr>"
-            )
-        if not offer_rows_html:
-            offer_rows_html = "<tr><td colspan='8' style='opacity:0.8;'>No offers received yet (open GE / let plugin POST /suggestion)</td></tr>"
-
-        open_pos_html = ""
-        for r in open_rows:
-            iid = int(r["item_id"])
-            name = str(r["item_name"])
-            open_qty = int(r["open_qty"])
-            open_cost = int(r["open_cost"])
-            avg_buy = int(open_cost / open_qty) if open_qty > 0 else 0
-
-            lp = latest.get(iid) or {}
-            high = int(lp.get("high", 0)) if isinstance(lp, dict) else 0
-            sell_px = max(high - 1, 1) if high > 0 else 0
-            tax = ge_tax_per_unit(iid, sell_px) if sell_px > 0 else 0
-            unreal_per = (sell_px - avg_buy - tax) if sell_px > 0 else 0
-            unreal = unreal_per * open_qty if sell_px > 0 else 0
-
-            open_pos_html += (
-                "<tr>"
-                f"<td>{iid}</td>"
-                f"<td>{html_escape(name)}</td>"
-                f"<td>{open_qty:,}</td>"
-                f"<td>{avg_buy:,}</td>"
-                f"<td>{open_cost:,}</td>"
-                f"<td>{sell_px:,}</td>"
-                f"<td>{unreal:,}</td>"
-                "</tr>"
-            )
-        if not open_pos_html:
-            open_pos_html = "<tr><td colspan='7' style='opacity:0.8;'>No open lots (nothing currently held)</td></tr>"
-
-        hist_html = ""
-        for t in hist_rows:
-            hist_html += (
-                "<tr>"
-                f"<td>{int(t['trade_id'])}</td>"
-                f"<td>{int(t['item_id'])}</td>"
-                f"<td>{html_escape(str(t['item_name']))}</td>"
-                f"<td>{int(t['qty']):,}</td>"
-                f"<td>{int(t['buy_price']):,}</td>"
-                f"<td>{int(t['sell_price']):,}</td>"
-                f"<td>{int(t['profit']):,}</td>"
-                f"<td>{html_escape(format_ts(int(t['sell_ts'])))} </td>"
-                "</tr>"
-            )
-        if not hist_html:
-            hist_html = "<tr><td colspan='8' style='opacity:0.8;'>No realized trades yet</td></tr>"
-
-        html = f"""
+        html = """
         <html>
         <head>
-          <title>SwagFlip Dashboard</title>
+          <title>SwagFlip Dashboard (Reset)</title>
           <style>
-            body {{
+            body {
               font-family: system-ui, sans-serif;
               padding: 22px;
               background: #0f1115;
               color: #f2f2f2;
-            }}
-            a {{ color: #8ab4ff; text-decoration: none; }}
-            a:hover {{ text-decoration: underline; }}
-            .grid {{ display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 16px; }}
-            .card {{ background: #161a22; border: 1px solid #2a3243; border-radius: 10px; padding: 12px; }}
-            .k {{ opacity: 0.78; font-size: 12px; }}
-            .v {{ font-size: 20px; font-weight: 800; margin-top: 4px; }}
-            .row {{ display:flex; gap: 10px; flex-wrap: wrap; margin: 10px 0 18px; }}
-            .pill {{ background:#161a22; border:1px solid #2a3243; border-radius:999px; padding:8px 12px; font-size:13px; }}
-            .wrap {{ max-height: 340px; overflow:auto; border-radius: 10px; border: 1px solid #2a3243; }}
-
-            table {{
-              width: 100%;
-              border-collapse: collapse;
-              background: #11151d;
-              color: #f2f2f2;
-            }}
-            th, td {{
+            }
+            .card {
+              background: #161a22;
               border: 1px solid #2a3243;
-              padding: 8px;
-              text-align: left;
-              color: #f2f2f2;
-            }}
-            th {{
-              background: #141a26;
-              position: sticky;
-              top: 0;
-            }}
-            h2 {{ margin: 18px 0 10px; }}
+              border-radius: 10px;
+              padding: 16px;
+              max-width: 640px;
+            }
           </style>
         </head>
         <body>
-          <h1 style="margin:0 0 8px;">SwagFlip Dashboard</h1>
-
-          <div class="row">
-            <div class="pill">DB: <span style="opacity:0.85">{html_escape(DB_PATH)}</span></div>
-            <div class="pill">Prices refreshed: <span style="opacity:0.85">{html_escape(format_ts(int(last_refresh)))}</span></div>
-            <div class="pill">Last plugin status: <span style="opacity:0.85">{html_escape(format_ts(int(last_status_ts)))}</span></div>
-            <div class="pill">Coins (last status): <span style="opacity:0.85">{coins:,}</span></div>
-            <div class="pill">Buy-limit window: <span style="opacity:0.85">{BUY_LIMIT_RESET_SECONDS}s</span></div>
-            <div class="pill">Logs: <a href="/debug/logs" style="opacity:0.95">/debug/logs</a></div>
-          </div>
-
-          <div class="grid">
-            <div class="card"><div class="k">Realized Profit</div><div class="v">{realized_profit:,} gp</div></div>
-            <div class="card"><div class="k">Realized Cost</div><div class="v">{realized_cost:,} gp</div></div>
-            <div class="card"><div class="k">Realized ROI</div><div class="v">{roi*100:.2f}%</div></div>
-            <div class="card"><div class="k">Open Cost Basis</div><div class="v">{open_cost_total:,} gp</div></div>
-          </div>
-
-          <h2>Current Offers (from last /suggestion payload)</h2>
-          <div class="wrap">
-            <table>
-              <tr>
-                <th>Box</th><th>Status</th><th>Active</th><th>Item ID</th><th>Name</th><th>Price</th><th>Traded</th><th>GP to Collect</th>
-              </tr>
-              {offer_rows_html}
-            </table>
-          </div>
-
-          <h2>Open Positions (lots aggregated)</h2>
-          <div class="wrap">
-            <table>
-              <tr>
-                <th>Item ID</th><th>Name</th><th>Open Qty</th><th>Avg Buy</th><th>Open Cost</th><th>Est Sell (high-1)</th><th>Unrealized (est)</th>
-              </tr>
-              {open_pos_html}
-            </table>
-          </div>
-
-          <h2>Recent Realized Trades</h2>
-          <div class="wrap">
-            <table>
-              <tr>
-                <th>ID</th><th>Item ID</th><th>Name</th><th>Qty</th><th>Buy</th><th>Sell</th><th>Profit</th><th>Sold</th>
-              </tr>
-              {hist_html}
-            </table>
+          <h1 style="margin:0 0 12px;">SwagFlip Dashboard</h1>
+          <div class="card">
+            <p style="margin:0;">Dashboard reset. Add new widgets/layout here as we iterate.</p>
           </div>
         </body>
         </html>
@@ -3449,15 +3270,15 @@ def suggestion():
             max_buy_mins = float(TARGET_FILL_MINUTES) * 3.0
         elif tf_minutes <= 30:
             min_roi_eff = max(MIN_ROI, 0.003)   # 0.3%
-            min_margin_eff = max(MIN_MARGIN_GP, 25)
+            min_margin_eff = max(MIN_MARGIN_GP, 10)
             max_buy_mins = 60.0
         elif tf_minutes <= 120:
             min_roi_eff = max(MIN_ROI, 0.006)   # 0.6%
-            min_margin_eff = max(MIN_MARGIN_GP, 50)
+            min_margin_eff = max(MIN_MARGIN_GP, 25)
             max_buy_mins = 240.0
         else:
             min_roi_eff = max(MIN_ROI, 0.010)   # 1.0%
-            min_margin_eff = max(MIN_MARGIN_GP, 100)
+            min_margin_eff = max(MIN_MARGIN_GP, 40)
             max_buy_mins = 720.0
 
 
