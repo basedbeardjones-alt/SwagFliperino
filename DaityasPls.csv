@@ -1,0 +1,1796 @@
+# Displaying trades for selected time interval: All
+name,date,quantity,price,state
+Super restore(4),2026-01-31 09:01 PM,215,10552,BOUGHT
+Super restore(4),2026-01-31 09:02 PM,215,10600,SOLD
+# Total profit: 10320
+
+Onyx bolts (e),2026-01-31 09:04 PM,55,8403,CANCELLED_BUY
+Onyx bolts (e),2026-01-31 09:05 PM,55,8428,SOLD
+# Total profit: 1375
+
+Amethyst,2026-01-31 08:47 PM,1,3187,CANCELLED_BUY
+Amethyst,2026-01-31 09:00 PM,1,3225,SOLD
+# Total profit: 38
+
+Magic logs,2026-01-31 08:37 PM,1179,1010,BOUGHT
+Magic logs,2026-01-31 08:38 PM,1179,1011,SOLD
+# Total profit: 1179
+
+Magic sapling,2026-01-31 08:02 PM,13,91508,BOUGHT
+Magic sapling,2026-01-31 08:30 PM,8,92979,CANCELLED_SELL
+Magic sapling,2026-01-31 08:38 PM,5,92979,SOLD
+# Total profit: 19123
+
+Red dragon leather,2026-01-31 07:39 PM,617,2698,BOUGHT
+# Total profit: 0
+
+Ruby dragon bolts (e),2026-01-31 07:47 PM,499,3334,BOUGHT
+Ruby dragon bolts (e),2026-01-31 08:25 PM,499,3428,SOLD
+Ruby dragon bolts (e),2026-01-31 08:34 PM,467,3394,BOUGHT
+# Total profit: 46906
+
+Dagannoth bones,2026-01-31 07:31 PM,130,12801,BOUGHT
+Dagannoth bones,2026-01-31 07:54 PM,130,13044,SOLD
+# Total profit: 31590
+
+Dragon arrow,2026-01-31 07:14 PM,713,2435,BOUGHT
+Dragon arrow,2026-01-31 07:14 PM,713,2441,SOLD
+Dragon arrow,2026-01-31 07:20 PM,619,2435,BOUGHT
+Dragon arrow,2026-01-31 07:25 PM,619,2440,SOLD
+Dragon arrow,2026-01-31 08:29 PM,1,2433,BOUGHT
+Dragon arrow,2026-01-31 08:35 PM,1,2450,SOLD
+Dragon arrow,2026-01-31 08:46 PM,939,2436,CANCELLED_BUY
+Dragon arrow,2026-01-31 08:47 PM,939,2450,SOLD
+# Total profit: 20536
+
+Adamantite bar,2026-01-31 07:10 PM,1304,1820,BOUGHT
+Adamantite bar,2026-01-31 07:11 PM,1304,1837,SOLD
+Adamantite bar,2026-01-31 07:16 PM,1002,1819,BOUGHT
+Adamantite bar,2026-01-31 07:21 PM,1002,1836,SOLD
+# Total profit: 39202
+
+Dynamite,2026-01-31 06:31 PM,375,705,BOUGHT
+Dynamite,2026-01-31 06:50 PM,153,737,CANCELLED_SELL
+Dynamite,2026-01-31 07:11 PM,222,707,SOLD
+# Total profit: 5340
+
+Larran's key,2026-01-31 06:23 PM,1,129250,CANCELLED_BUY
+Larran's key,2026-01-31 06:36 PM,1,131173,SOLD
+# Total profit: 1923
+
+Dragon dart,2026-01-31 05:23 PM,865,1398,BOUGHT
+Dragon dart,2026-01-31 06:09 PM,865,1455,SOLD
+Dragon dart,2026-01-31 06:53 PM,1166,1446,CANCELLED_BUY
+Dragon dart,2026-01-31 07:09 PM,1166,1457,SOLD
+Dragon dart,2026-01-31 07:14 PM,1440,1438,BOUGHT
+Dragon dart,2026-01-31 07:32 PM,1440,1447,SOLD
+Dragon dart,2026-01-31 09:00 PM,1590,1431,BOUGHT
+Dragon dart,2026-01-31 09:02 PM,1590,1447,SOLD
+# Total profit: 100531
+
+Divine super combat potion(4),2026-01-31 04:45 PM,86,20547,BOUGHT
+Divine super combat potion(4),2026-01-31 05:18 PM,86,20724,SOLD
+Divine super combat potion(4),2026-01-31 06:27 PM,69,20438,BOUGHT
+Divine super combat potion(4),2026-01-31 06:28 PM,69,20773,SOLD
+# Total profit: 38337
+
+Runite bar,2026-01-31 03:57 PM,797,12333,BOUGHT
+# Total profit: 0
+
+Magic longbow (u),2026-01-31 02:32 PM,1855,1078,BOUGHT
+Magic longbow (u),2026-01-31 03:51 PM,1855,1075,SOLD
+# Total profit: -5565
+
+Shark,2026-01-31 12:50 PM,1583,742,BOUGHT
+Shark,2026-01-31 01:07 PM,1583,760,SOLD
+Shark,2026-01-31 04:43 PM,529,758,CANCELLED_BUY
+Shark,2026-01-31 04:44 PM,529,772,SOLD
+Shark,2026-01-31 04:56 PM,1807,760,BOUGHT
+Shark,2026-01-31 06:20 PM,1807,761,SOLD
+Shark,2026-01-31 06:56 PM,798,746,CANCELLED_BUY
+Shark,2026-01-31 06:58 PM,798,757,SOLD
+# Total profit: 46485
+
+Chaos rune,2026-01-31 12:28 PM,12000,70,BOUGHT
+Chaos rune,2026-01-31 01:07 PM,12000,72,SOLD
+Chaos rune,2026-01-31 07:00 PM,12000,70,BOUGHT
+Chaos rune,2026-01-31 07:00 PM,12000,71,SOLD
+# Total profit: 36000
+
+Soul rune,2026-01-31 12:05 PM,10000,314,BOUGHT
+Soul rune,2026-01-31 12:25 PM,10000,318,SOLD
+Soul rune,2026-01-31 03:34 PM,9861,315,BOUGHT
+Soul rune,2026-01-31 03:47 PM,9861,310,SOLD
+Soul rune,2026-01-31 04:37 PM,2571,315,CANCELLED_BUY
+Soul rune,2026-01-31 04:39 PM,2571,319,SOLD
+Soul rune,2026-01-31 06:34 PM,7429,314,BOUGHT
+Soul rune,2026-01-31 06:35 PM,7429,318,SOLD
+Soul rune,2026-01-31 08:31 PM,2571,316,BOUGHT
+Soul rune,2026-01-31 08:43 PM,2571,318,SOLD
+# Total profit: 35837
+
+Demon tear,2026-01-31 11:42 AM,6248,411,SOLD
+# Total profit: 0
+
+Mithril keel parts,2026-01-17 10:08 AM,1,2572,SOLD
+# Total profit: 0
+
+Ogre arrow,2026-01-17 10:09 AM,349,249,CANCELLED_BUY
+Ogre arrow,2026-01-17 10:11 AM,142,283,SELLING
+# Total profit: 4828
+
+Iron ore,2026-01-17 10:05 AM,13000,78,BOUGHT
+Iron ore,2026-01-17 10:10 AM,9305,81,SELLING
+# Total profit: 27915
+
+Adamantite ore,2026-01-17 10:09 AM,2714,527,CANCELLED_BUY
+Adamantite ore,2026-01-17 10:10 AM,2714,546,SOLD
+Adamantite ore,2026-01-31 01:51 PM,4500,622,BOUGHT
+Adamantite ore,2026-01-31 02:28 PM,4500,598,SOLD
+Adamantite ore,2026-01-31 06:26 PM,224,613,CANCELLED_BUY
+Adamantite ore,2026-01-31 06:28 PM,224,622,SOLD
+Adamantite ore,2026-01-31 06:33 PM,1757,619,BOUGHT
+Adamantite ore,2026-01-31 06:34 PM,1757,629,SOLD
+Adamantite ore,2026-01-31 07:09 PM,2519,618,BOUGHT
+Adamantite ore,2026-01-31 07:11 PM,2519,629,SOLD
+# Total profit: -9139
+
+Xerician hat,2026-01-17 10:04 AM,10,10224,BUYING
+# Total profit: 0
+
+Dragon platebody,2026-01-17 09:48 AM,1,2306765,BOUGHT
+Dragon platebody,2026-01-17 10:01 AM,1,2346058,SOLD
+# Total profit: 39293
+
+Zamorakian hasta,2026-01-17 09:37 AM,1,1547412,CANCELLED_BUY
+Zamorakian hasta,2026-01-17 09:49 AM,1,1582588,SOLD
+# Total profit: 35176
+
+Gold leaf,2026-01-17 09:25 AM,1,139411,BOUGHT
+# Total profit: 0
+
+Swampbark body,2026-01-17 09:03 AM,3,91404,BOUGHT
+Swampbark body,2026-01-17 09:42 AM,3,101185,SOLD
+# Total profit: 29343
+
+Tai bwo wannai teleport,2026-01-17 08:53 AM,94,1924,CANCELLED_BUY
+Tai bwo wannai teleport,2026-01-17 09:21 AM,94,2141,SOLD
+# Total profit: 20398
+
+Bolt of cloth,2026-01-17 08:44 AM,4,449,BOUGHT
+# Total profit: 0
+
+Raw salmon,2026-01-17 08:45 AM,3154,71,CANCELLED_BUY
+Raw salmon,2026-01-17 08:57 AM,3322,80,CANCELLED_SELL
+Raw salmon,2026-01-17 08:57 AM,29,69,SOLD
+# Total profit: 28386
+
+Water rune,2026-01-17 08:08 AM,5000,5,BOUGHT
+# Total profit: 0
+
+Fire rune,2026-01-17 08:08 AM,1000,5,BOUGHT
+Fire rune,2026-01-17 08:08 AM,1000,5,BOUGHT
+Fire rune,2026-01-17 08:08 AM,1000,5,BOUGHT
+# Total profit: 0
+
+Mystic boots,2026-01-17 08:29 AM,57,5909,BOUGHT
+Mystic boots,2026-01-17 08:58 AM,1,6630,CANCELLED_SELL
+Mystic boots,2026-01-17 09:36 AM,56,6424,SOLD
+# Total profit: 29561
+
+Law rune,2026-01-17 08:06 AM,2000,117,BOUGHT
+# Total profit: 0
+
+Teak plank,2026-01-17 08:02 AM,10,724,BOUGHT
+Teak plank,2026-01-17 08:15 AM,10,723,BOUGHT
+Teak plank,2026-01-17 08:50 AM,10,723,BOUGHT
+Teak plank,2026-01-31 07:12 PM,1476,837,BOUGHT
+Teak plank,2026-01-31 07:15 PM,506,852,CANCELLED_SELL
+Teak plank,2026-01-31 07:16 PM,970,851,SOLD
+# Total profit: 24580
+
+Swampbark legs,2026-01-17 08:02 AM,1,85906,CANCELLED_BUY
+Swampbark legs,2026-01-17 08:04 AM,1,100401,SOLD
+# Total profit: 14495
+
+Cup of hot water,2026-01-17 08:05 AM,2251,242,CANCELLED_BUY
+Cup of hot water,2026-01-17 08:42 AM,2251,270,SOLD
+# Total profit: 63028
+
+Contract of sensory clouding,2026-01-17 07:49 AM,9,158067,BOUGHT
+Contract of sensory clouding,2026-01-17 08:45 AM,4,171061,CANCELLED_SELL
+Contract of sensory clouding,2026-01-17 08:46 AM,5,168926,SOLD
+# Total profit: 106271
+
+Blighted manta ray,2026-01-17 07:59 AM,10000,115,BOUGHT
+Blighted manta ray,2026-01-17 08:16 AM,9067,121,SOLD
+# Total profit: 54402
+
+Elder chaos hood,2026-01-17 07:46 AM,1,133265,CANCELLED_BUY
+Elder chaos hood,2026-01-17 07:49 AM,1,145506,SOLD
+# Total profit: 12241
+
+Salve graveyard teleport,2026-01-17 07:45 AM,19,2516,CANCELLED_BUY
+Salve graveyard teleport,2026-01-17 07:47 AM,19,2725,SOLD
+# Total profit: 3971
+
+Ahrim's robeskirt,2026-01-17 07:42 AM,1,1671312,CANCELLED_BUY
+Ahrim's robeskirt,2026-01-17 07:42 AM,1,1712188,SOLD
+# Total profit: 40876
+
+Hueycoatl hide chaps,2026-01-17 07:37 AM,1,887661,BOUGHT
+Hueycoatl hide chaps,2026-01-17 08:43 AM,1,901004,SOLD
+# Total profit: 13343
+
+Ranarr potion (unf),2026-01-17 07:31 AM,1153,5361,BOUGHT
+Ranarr potion (unf),2026-01-17 07:44 AM,1153,5417,SOLD
+# Total profit: 64568
+
+Granite maul,2026-01-17 07:32 AM,13,215945,CANCELLED_BUY
+Granite maul,2026-01-17 07:37 AM,3,219056,CANCELLED_SELL
+Granite maul,2026-01-17 07:47 AM,8,218525,CANCELLED_SELL
+Granite maul,2026-01-17 07:53 AM,2,219080,SOLD
+Granite maul,2026-01-17 09:25 AM,20,217177,CANCELLED_BUY
+Granite maul,2026-01-17 09:42 AM,20,220592,SOLD
+# Total profit: 104543
+
+Magic shortbow scroll,2026-01-17 07:30 AM,20,33422,CANCELLED_BUY
+Magic shortbow scroll,2026-01-17 07:32 AM,20,33862,SOLD
+# Total profit: 8800
+
+Dragon chainbody,2026-01-17 07:27 AM,2,449102,CANCELLED_BUY
+Dragon chainbody,2026-01-17 07:32 AM,2,457232,SOLD
+# Total profit: 16260
+
+Serpentine helm (uncharged),2026-01-17 07:22 AM,1,3475388,SOLD
+# Total profit: 0
+
+Blood rune,2026-01-17 07:19 AM,25000,212,BOUGHT
+Blood rune,2026-01-17 07:23 AM,25000,214,SOLD
+Blood rune,2026-01-31 11:27 AM,7870,216,BOUGHT
+Blood rune,2026-01-31 11:33 AM,24018,220,SOLD
+Blood rune,2026-01-31 11:58 AM,23393,216,BOUGHT
+Blood rune,2026-01-31 12:06 PM,23393,219,SOLD
+Blood rune,2026-01-31 03:55 PM,10498,214,BOUGHT
+Blood rune,2026-01-31 03:56 PM,10498,218,SOLD
+Blood rune,2026-01-31 06:59 PM,1617,218,CANCELLED_BUY
+# Total profit: 221914
+
+Rune mace,2026-01-17 07:20 AM,70,7350,BOUGHT
+Rune mace,2026-01-17 07:24 AM,30,8201,CANCELLED_SELL
+Rune mace,2026-01-17 07:25 AM,40,8200,SOLD
+# Total profit: 59530
+
+Moonlight antler bolts,2026-01-17 07:18 AM,34,160,CANCELLED_BUY
+Moonlight antler bolts,2026-01-17 07:21 AM,34,168,SOLD
+# Total profit: 272
+
+Blighted ancient ice sack,2026-01-17 07:17 AM,15000,164,SOLD
+# Total profit: 0
+
+Ancient staff,2026-01-17 07:17 AM,19,59533,BOUGHT
+Ancient staff,2026-01-17 07:21 AM,3,60555,CANCELLED_SELL
+Ancient staff,2026-01-17 07:27 AM,13,60426,CANCELLED_SELL
+Ancient staff,2026-01-17 07:29 AM,3,60228,SOLD
+# Total profit: 16760
+
+Jug of wine,2026-01-16 07:57 PM,2914,5,SOLD
+# Total profit: 0
+
+Snowy knight,2026-01-16 07:56 PM,1,1479,SOLD
+# Total profit: 0
+
+Redberries,2026-01-16 07:55 PM,3,55,SOLD
+# Total profit: 0
+
+Bandit's brew,2026-01-16 07:55 PM,1,1642,SOLD
+# Total profit: 0
+
+Adamant warhammer,2026-01-16 07:55 PM,1,2744,SOLD
+# Total profit: 0
+
+Adamant 2h sword,2026-01-16 07:54 PM,1,3662,SOLD
+# Total profit: 0
+
+Dragonstone bolt tips,2026-01-16 07:54 PM,36,504,SOLD
+# Total profit: 0
+
+Pestle and mortar,2026-01-16 07:49 PM,2,68,SOLD
+# Total profit: 0
+
+Yew longbow (u),2026-01-16 07:51 PM,10000,352,BOUGHT
+Yew longbow (u),2026-01-16 08:01 PM,10000,359,SOLD
+Yew longbow (u),2026-01-17 07:39 AM,10000,352,BOUGHT
+Yew longbow (u),2026-01-17 07:45 AM,10000,363,SOLD
+Yew longbow (u),2026-01-31 05:49 PM,6803,260,BOUGHT
+Yew longbow (u),2026-01-31 05:51 PM,1537,264,SOLD
+Yew longbow (u),2026-01-31 06:20 PM,5266,261,SOLD
+# Total profit: 191414
+
+Black dragonhide,2026-01-16 07:48 PM,1,2612,SOLD
+# Total profit: 0
+
+Vial of water,2026-01-16 07:47 PM,6,3,SOLD
+# Total profit: 0
+
+Ensouled troll head,2026-01-16 07:47 PM,2,571,SOLD
+# Total profit: 0
+
+Cup of tea,2026-01-16 07:47 PM,2,98,SOLD
+# Total profit: 0
+
+Xerician fabric,2026-01-16 07:47 PM,3,3167,SOLD
+# Total profit: 0
+
+Seaweed,2026-01-16 07:47 PM,29,6,SOLD
+# Total profit: 0
+
+Blue flowers,2026-01-16 07:46 PM,1,294,SOLD
+# Total profit: 0
+
+Thin snail meat,2026-01-16 07:46 PM,1,854,SOLD
+# Total profit: 0
+
+Rune chainbody,2026-01-16 07:45 PM,1,29297,SOLD
+# Total profit: 0
+
+Raw chompy,2026-01-16 07:45 PM,4,2028,SOLD
+# Total profit: 0
+
+Mithril chainbody,2026-01-16 07:45 PM,1,1049,SOLD
+# Total profit: 0
+
+Rune kiteshield,2026-01-16 07:45 PM,3,31478,SOLD
+# Total profit: 0
+
+Blue feather,2026-01-16 07:44 PM,6,53,SOLD
+# Total profit: 0
+
+Team-34 cape,2026-01-16 07:44 PM,1,8820,SOLD
+# Total profit: 0
+
+Adamant crossbow,2026-01-16 07:42 PM,1,784,SOLD
+# Total profit: 0
+
+Jug,2026-01-16 07:41 PM,29,2,SOLD
+# Total profit: 0
+
+Grey wolf fur,2026-01-16 07:41 PM,1,16,SOLD
+# Total profit: 0
+
+Adamant axe,2026-01-16 07:40 PM,1,435,SOLD
+# Total profit: 0
+
+Saradomin brew(1),2026-01-16 07:39 PM,1,2205,SOLD
+# Total profit: 0
+
+Choc-ice,2026-01-16 07:39 PM,1,128,SOLD
+# Total profit: 0
+
+Red topaz,2026-01-16 07:39 PM,1,4920,SOLD
+# Total profit: 0
+
+Looting bag note,2026-01-16 08:05 PM,38,83495,BOUGHT
+Looting bag note,2026-01-17 07:36 AM,2,82590,CANCELLED_BUY
+Looting bag note,2026-01-17 07:36 AM,2,85239,SOLD
+Looting bag note,2026-01-17 07:40 AM,1,82970,CANCELLED_BUY
+Looting bag note,2026-01-17 07:40 AM,1,85128,SOLD
+# Total profit: 5121
+
+Steel scimitar,2026-01-16 07:35 PM,1,100,SOLD
+# Total profit: 0
+
+Adamant battleaxe,2026-01-16 07:35 PM,2,2343,SOLD
+# Total profit: 0
+
+Harralander seed,2026-01-16 07:30 PM,1,11,SOLD
+# Total profit: 0
+
+Cabbage seed,2026-01-16 07:30 PM,1,2,SOLD
+# Total profit: 0
+
+Bronze spear,2026-01-16 07:30 PM,1,81,SOLD
+# Total profit: 0
+
+Blue dragonhide,2026-01-16 07:30 PM,1,1611,SOLD
+# Total profit: 0
+
+Mithril seeds,2026-01-16 07:30 PM,40,719,SOLD
+# Total profit: 0
+
+Black nails,2026-01-16 07:28 PM,4,6591,SOLD
+# Total profit: 0
+
+Earth battlestaff,2026-01-16 07:30 PM,254,8855,CANCELLED_SELL
+Earth battlestaff,2026-01-16 07:30 PM,746,8854,SOLD
+# Total profit: 0
+
+Blighted anglerfish,2026-01-16 07:47 PM,10000,92,BOUGHT
+Blighted anglerfish,2026-01-16 07:57 PM,1379,98,SELLING
+# Total profit: 8274
+
+Cake tin,2026-01-16 07:23 PM,2,80,SOLD
+# Total profit: 0
+
+Iron nails,2026-01-16 07:23 PM,26,4,SOLD
+# Total profit: 0
+
+Gadderhammer,2026-01-16 07:23 PM,1,784,SOLD
+# Total profit: 0
+
+Barrel,2026-01-16 07:22 PM,5,833,SOLD
+# Total profit: 0
+
+Apple tree seed,2026-01-16 07:20 PM,1,29,SOLD
+# Total profit: 0
+
+Zogre bones,2026-01-16 07:20 PM,2,1470,SOLD
+# Total profit: 0
+
+Shark paint,2026-01-16 07:20 PM,2,1470,SOLD
+# Total profit: 0
+
+Oyster pearls,2026-01-16 07:19 PM,2,662,SOLD
+# Total profit: 0
+
+Bird nest,2026-01-16 07:19 PM,1,4784,SOLD
+# Total profit: 0
+
+Jade amulet,2026-01-16 07:17 PM,1,1715,SOLD
+# Total profit: 0
+
+Amethyst arrow,2026-01-16 07:17 PM,4,245,SOLD
+# Total profit: 0
+
+Ruby necklace,2026-01-16 07:17 PM,6,1133,SOLD
+# Total profit: 0
+
+Amulet of strength,2026-01-16 07:17 PM,1,1230,SOLD
+# Total profit: 0
+
+Adamant keel parts,2026-01-16 07:28 PM,1,1891,CANCELLED_BUY
+Adamant keel parts,2026-01-16 07:28 PM,1,5553,SOLD
+# Total profit: 3662
+
+Willow shortbow,2026-01-16 07:07 PM,1,106,SOLD
+# Total profit: 0
+
+Blue d'hide chaps,2026-01-16 07:07 PM,1,2154,SOLD
+# Total profit: 0
+
+Mithril pickaxe,2026-01-16 07:07 PM,1,425,SOLD
+Mithril pickaxe,2026-01-16 07:07 PM,1,460,SOLD
+# Total profit: 0
+
+Dwarf weed seed,2026-01-16 07:19 PM,2,832,CANCELLED_BUY
+Dwarf weed seed,2026-01-16 07:21 PM,2,1119,SOLD
+# Total profit: 574
+
+Steel claws,2026-01-16 07:06 PM,1,396,SOLD
+# Total profit: 0
+
+Onyx bolt tips,2026-01-16 07:03 PM,4,8056,SOLD
+# Total profit: 0
+
+Bowl,2026-01-16 07:03 PM,13,12,SOLD
+# Total profit: 0
+
+Steel med helm,2026-01-16 07:03 PM,3,49,SOLD
+# Total profit: 0
+
+Blue cape,2026-01-16 07:03 PM,1,138,SOLD
+# Total profit: 0
+
+Green d'hide chaps,2026-01-16 07:03 PM,1,2204,SOLD
+# Total profit: 0
+
+Flamtaer bracelet,2026-01-16 07:02 PM,1,778,SOLD
+# Total profit: 0
+
+Watson teleport,2026-01-16 07:02 PM,4,4606,SOLD
+# Total profit: 0
+
+Loar remains,2026-01-16 07:01 PM,3,156,SOLD
+# Total profit: 0
+
+Ensouled bloodveld head,2026-01-16 07:01 PM,2,1020,SOLD
+# Total profit: 0
+
+Mithril dart,2026-01-16 06:52 PM,1692,14,SOLD
+# Total profit: 0
+
+Ensouled giant head,2026-01-16 06:52 PM,2,245,SOLD
+# Total profit: 0
+
+Swordfish,2026-01-16 06:52 PM,943,208,SOLD
+# Total profit: 0
+
+Potato cactus,2026-01-16 06:52 PM,1,47,SOLD
+# Total profit: 0
+
+Pie dish,2026-01-16 06:51 PM,5,56,SOLD
+# Total profit: 0
+
+Raw mackerel,2026-01-16 06:51 PM,11,18,SOLD
+# Total profit: 0
+
+Monkfish,2026-01-16 06:50 PM,12,408,SOLD
+# Total profit: 0
+
+Ensouled demon head,2026-01-16 06:50 PM,3,1470,SOLD
+# Total profit: 0
+
+Adamant platelegs,2026-01-16 06:50 PM,4,3573,SOLD
+# Total profit: 0
+
+Iron arrowtips,2026-01-16 06:49 PM,1,5,SOLD
+# Total profit: 0
+
+Black platebody,2026-01-16 06:49 PM,1,3943,SOLD
+# Total profit: 0
+
+Vile ashes,2026-01-16 06:49 PM,8,76,SOLD
+# Total profit: 0
+
+Mahogany bird house,2026-01-16 06:55 PM,153,685,CANCELLED_BUY
+Mahogany bird house,2026-01-16 07:05 PM,153,1280,SOLD
+Mahogany bird house,2026-01-16 08:01 PM,42,923,CANCELLED_BUY
+# Total profit: 91035
+
+Ancient d'hide boots,2026-01-16 06:45 PM,1,478205,BOUGHT
+# Total profit: 0
+
+Tarromin seed,2026-01-16 06:39 PM,2,2,SOLD
+# Total profit: 0
+
+Mithril sq shield,2026-01-16 06:39 PM,1,621,SOLD
+# Total profit: 0
+
+Dragon scimitar,2026-01-16 06:38 PM,2,58198,SOLD
+# Total profit: 0
+
+Steel knife,2026-01-16 06:38 PM,1,65,SOLD
+# Total profit: 0
+
+Rune scimitar,2026-01-16 06:38 PM,3,14949,SOLD
+# Total profit: 0
+
+Fire battlestaff,2026-01-16 06:38 PM,2,8894,SOLD
+# Total profit: 0
+
+Runite limbs,2026-01-16 06:38 PM,1,9180,SOLD
+# Total profit: 0
+
+Jangerberry seed,2026-01-16 06:38 PM,1,10,SOLD
+# Total profit: 0
+
+Black warhammer,2026-01-16 06:38 PM,1,490,SOLD
+# Total profit: 0
+
+Grimy avantoe,2026-01-16 06:38 PM,3,3558,SOLD
+# Total profit: 0
+
+Grimy irit leaf,2026-01-16 06:38 PM,3,2726,SOLD
+# Total profit: 0
+
+Grimy dwarf weed,2026-01-16 06:38 PM,1,2902,SOLD
+# Total profit: 0
+
+Grimy cadantine,2026-01-16 06:37 PM,1,3488,SOLD
+# Total profit: 0
+
+Ranarr weed,2026-01-16 06:37 PM,1,5085,SOLD
+# Total profit: 0
+
+Grimy harralander,2026-01-16 06:37 PM,1,502,SOLD
+# Total profit: 0
+
+Grimy tarromin,2026-01-16 06:37 PM,1,141,SOLD
+# Total profit: 0
+
+Zamorak chaps,2026-01-16 06:35 PM,1,368738,BOUGHT
+# Total profit: 0
+
+Armadyl d'hide body,2026-01-16 06:34 PM,1,157559,BOUGHT
+# Total profit: 0
+
+Steel dart,2026-01-16 06:31 PM,45,5,SOLD
+# Total profit: 0
+
+Red d'hide vambraces,2026-01-16 06:31 PM,1,1649,SOLD
+# Total profit: 0
+
+Blue d'hide vambraces,2026-01-16 06:30 PM,1,2044,SOLD
+# Total profit: 0
+
+Amethyst dart,2026-01-16 06:29 PM,16,259,SOLD
+# Total profit: 0
+
+Rune dart,2026-01-16 06:29 PM,61,158,SOLD
+# Total profit: 0
+
+Bone bolts,2026-01-16 06:28 PM,90,5,SOLD
+# Total profit: 0
+
+Torag's platelegs,2026-01-16 06:29 PM,1,295078,CANCELLED_BUY
+Torag's platelegs,2026-01-16 06:33 PM,1,305739,SOLD
+# Total profit: 10661
+
+Bronze bolts,2026-01-16 06:28 PM,284,2,SOLD
+# Total profit: 0
+
+Iron knife,2026-01-16 06:28 PM,2,14,SOLD
+# Total profit: 0
+
+Rune knife,2026-01-16 06:28 PM,54,118,SOLD
+# Total profit: 0
+
+Sunlight antler bolts,2026-01-16 06:28 PM,8,115,SOLD
+# Total profit: 0
+
+Bandos platelegs,2026-01-16 06:28 PM,1,48633,SOLD
+# Total profit: 0
+
+Runite bolts,2026-01-16 06:27 PM,40,220,SOLD
+# Total profit: 0
+
+Diamond bolts (e),2026-01-16 06:27 PM,14,316,SOLD
+# Total profit: 0
+
+Adamant kiteshield,2026-01-16 06:27 PM,1,3010,SOLD
+# Total profit: 0
+
+Adamant sq shield,2026-01-16 06:27 PM,2,2156,SOLD
+# Total profit: 0
+
+Rune platebody,2026-01-16 06:26 PM,2,37926,SOLD
+Rune platebody,2026-01-31 02:28 PM,70,38650,BOUGHT
+Rune platebody,2026-01-31 06:07 PM,17,38963,CANCELLED_SELL
+Rune platebody,2026-01-31 06:20 PM,53,37834,SOLD
+# Total profit: -37743
+
+Rune full helm,2026-01-16 06:25 PM,5,20409,SOLD
+# Total profit: 0
+
+Mystic set (light),2026-01-16 06:25 PM,1,158782,CANCELLED_BUY
+Mystic set (light),2026-01-16 06:27 PM,1,170528,SOLD
+# Total profit: 11746
+
+Potato with cheese,2026-01-16 05:54 PM,10,216,BOUGHT
+# Total profit: 0
+
+Super combat potion(4),2026-01-16 05:53 PM,3,18270,BOUGHT
+# Total profit: 0
+
+Dagon'hai robes set,2026-01-16 05:39 PM,1,921756,BOUGHT
+Dagon'hai robes set,2026-01-16 05:46 PM,1,948477,SOLD
+# Total profit: 26721
+
+Teak repair kit,2026-01-16 06:13 PM,1683,438,BOUGHT
+Teak repair kit,2026-01-16 08:05 PM,1683,483,SOLD
+# Total profit: 75735
+
+Cadantine seed,2026-01-16 05:43 PM,200,2635,BOUGHT
+Cadantine seed,2026-01-16 06:08 PM,200,2902,SOLD
+# Total profit: 53400
+
+Lumberyard teleport,2026-01-16 05:15 PM,1,6716,BOUGHT
+# Total profit: 0
+
+Gold necklace,2026-01-16 05:27 PM,12799,156,CANCELLED_BUY
+Gold necklace,2026-01-16 07:00 PM,12799,165,SOLD
+# Total profit: 115191
+
+Steel cannonball,2026-01-16 05:15 PM,11000,213,BOUGHT
+Steel cannonball,2026-01-16 05:16 PM,11000,220,SOLD
+Steel cannonball,2026-01-31 04:02 PM,7218,211,BOUGHT
+Steel cannonball,2026-01-31 04:13 PM,7218,217,SOLD
+Steel cannonball,2026-01-31 04:15 PM,3782,213,BOUGHT
+Steel cannonball,2026-01-31 04:19 PM,3782,216,SOLD
+Steel cannonball,2026-01-31 08:42 PM,11000,214,BOUGHT
+Steel cannonball,2026-01-31 08:43 PM,11000,216,SOLD
+# Total profit: 153654
+
+Astral rune,2026-01-16 05:30 PM,25000,62,BOUGHT
+Astral rune,2026-01-16 06:43 PM,25000,67,SOLD
+Astral rune,2026-01-31 11:44 AM,10000,61,BOUGHT
+Astral rune,2026-01-31 12:03 PM,10000,66,SOLD
+Astral rune,2026-01-31 04:40 PM,10000,62,BOUGHT
+Astral rune,2026-01-31 04:46 PM,10000,65,SOLD
+# Total profit: 205000
+
+Guthix robe top,2026-01-16 05:02 PM,1,49365,BOUGHT
+Guthix robe top,2026-01-16 05:25 PM,1,67903,SOLD
+# Total profit: 18538
+
+Burning amulet(5),2026-01-16 05:12 PM,76,6684,CANCELLED_BUY
+Burning amulet(5),2026-01-16 05:13 PM,76,6860,SOLD
+Burning amulet(5),2026-01-16 05:28 PM,78,6860,SOLD
+Burning amulet(5),2026-01-16 05:37 PM,78,6707,CANCELLED_BUY
+# Total profit: 25310
+
+Goading potion(1),2026-01-16 04:58 PM,4,8402,BOUGHT
+# Total profit: 0
+
+Avantoe seed,2026-01-16 04:57 PM,200,773,BOUGHT
+Avantoe seed,2026-01-16 05:01 PM,200,969,SOLD
+# Total profit: 39200
+
+Annakarl teleport,2026-01-16 04:45 PM,34,2956,SOLD
+# Total profit: 0
+
+Swampbark helm,2026-01-16 04:37 PM,2,55690,BOUGHT
+Swampbark helm,2026-01-16 05:05 PM,2,69525,SOLD
+# Total profit: 27670
+
+Willow longbow (u),2026-01-16 04:56 PM,5172,75,SOLD
+# Total profit: 0
+
+Lobster,2026-01-16 04:35 PM,4986,172,BOUGHT
+Lobster,2026-01-16 04:49 PM,4986,177,SOLD
+Lobster,2026-01-16 06:49 PM,433,180,SOLD
+Lobster,2026-01-17 09:00 AM,5738,180,SOLD
+# Total profit: 24930
+
+Lava rune,2026-01-16 04:17 PM,20,21,BOUGHT
+# Total profit: 0
+
+Mist rune,2026-01-16 04:17 PM,18,93,CANCELLED_BUY
+# Total profit: 0
+
+Pot lid,2026-01-16 04:14 PM,1,350,BOUGHT
+# Total profit: 0
+
+Glacial temotli,2026-01-16 04:02 PM,2,59800,CANCELLED_BUY
+Glacial temotli,2026-01-16 04:04 PM,2,67156,SOLD
+# Total profit: 14712
+
+Bloodbark boots,2026-01-16 04:01 PM,4,43628,BOUGHT
+Bloodbark boots,2026-01-16 04:09 PM,4,48556,SOLD
+# Total profit: 19712
+
+Iron chainbody,2026-01-16 03:34 PM,1,177,BOUGHT
+# Total profit: 0
+
+Bronze med helm,2026-01-16 03:34 PM,1,18,BOUGHT
+# Total profit: 0
+
+Mithril arrow,2026-01-16 03:36 PM,7000,17,BOUGHT
+Mithril arrow,2026-01-16 04:38 PM,7000,20,SOLD
+Mithril arrow,2026-01-16 07:19 PM,50,18,SOLD
+Mithril arrow,2026-01-17 08:44 AM,7000,17,BOUGHT
+Mithril arrow,2026-01-17 08:48 AM,7000,20,SOLD
+# Total profit: 41900
+
+Snapdragon seed,2026-01-16 03:31 PM,2,41551,SOLD
+# Total profit: 0
+
+Grimy guam leaf,2026-01-16 03:31 PM,1,696,SOLD
+# Total profit: 0
+
+Grimy ranarr weed,2026-01-16 03:31 PM,1,5048,SOLD
+Grimy ranarr weed,2026-01-16 03:31 PM,1,5048,SOLD
+Grimy ranarr weed,2026-01-16 03:31 PM,1,5048,SOLD
+Grimy ranarr weed,2026-01-31 04:47 PM,145,5331,CANCELLED_BUY
+Grimy ranarr weed,2026-01-31 06:30 PM,145,5365,SOLD
+# Total profit: 3979
+
+Lunar isle teleport,2026-01-16 02:28 PM,4,2697,BOUGHT
+Lunar isle teleport,2026-01-16 02:30 PM,4,2633,SOLD
+Lunar isle teleport,2026-01-16 03:54 PM,120,2433,CANCELLED_BUY
+Lunar isle teleport,2026-01-16 04:16 PM,120,2630,SOLD
+# Total profit: 23384
+
+Fenkenstrain's castle teleport,2026-01-16 02:41 PM,602,2216,BOUGHT
+Fenkenstrain's castle teleport,2026-01-16 03:35 PM,602,2279,SOLD
+Fenkenstrain's castle teleport,2026-01-16 04:17 PM,383,2221,BOUGHT
+Fenkenstrain's castle teleport,2026-01-16 04:22 PM,383,2278,SOLD
+Fenkenstrain's castle teleport,2026-01-16 05:10 PM,304,2223,BOUGHT
+Fenkenstrain's castle teleport,2026-01-16 05:16 PM,304,2278,SOLD
+# Total profit: 76477
+
+Superior dragon bones,2026-01-16 02:15 PM,166,21701,SOLD
+Superior dragon bones,2026-01-16 07:56 PM,1,20923,SOLD
+Superior dragon bones,2026-01-31 06:57 PM,55,23710,CANCELLED_BUY
+Superior dragon bones,2026-01-31 07:02 PM,55,23798,SOLD
+# Total profit: -110495
+
+Dagon'hai robe top,2026-01-16 02:26 PM,1,297092,CANCELLED_BUY
+Dagon'hai robe top,2026-01-16 03:49 PM,1,315430,SOLD
+Dagon'hai robe top,2026-01-17 08:56 AM,2,295039,BOUGHT
+Dagon'hai robe top,2026-01-17 09:06 AM,2,317021,SOLD
+# Total profit: 62302
+
+Blighted entangle sack,2026-01-16 02:04 PM,3183,85,CANCELLED_SELL
+Blighted entangle sack,2026-01-16 02:16 PM,7404,84,SOLD
+Blighted entangle sack,2026-01-16 03:55 PM,228,76,CANCELLED_BUY
+Blighted entangle sack,2026-01-16 04:04 PM,228,84,SOLD
+# Total profit: 2052
+
+Tarromin potion (unf),2026-01-16 02:04 PM,2502,307,CANCELLED_SELL
+Tarromin potion (unf),2026-01-16 03:04 PM,738,306,SOLD
+# Total profit: 0
+
+Camelot teleport,2026-01-16 02:26 PM,1619,700,CANCELLED_SELL
+Camelot teleport,2026-01-16 05:55 PM,10,890,BOUGHT
+# Total profit: -1900
+
+Zulrah's scales,2026-01-16 02:01 PM,20199,171,BOUGHT
+Zulrah's scales,2026-01-16 02:11 PM,20199,173,SOLD
+Zulrah's scales,2026-01-17 07:34 AM,30000,170,BOUGHT
+Zulrah's scales,2026-01-17 07:38 AM,30000,171,SOLD
+Zulrah's scales,2026-01-31 11:33 AM,13812,181,BOUGHT
+Zulrah's scales,2026-01-31 11:43 AM,13812,184,SOLD
+Zulrah's scales,2026-01-31 01:09 PM,16188,182,BOUGHT
+Zulrah's scales,2026-01-31 02:27 PM,16188,179,SOLD
+Zulrah's scales,2026-01-31 03:32 PM,16188,182,BOUGHT
+Zulrah's scales,2026-01-31 03:48 PM,16188,184,SOLD
+Zulrah's scales,2026-01-31 06:08 PM,7915,181,CANCELLED_BUY
+Zulrah's scales,2026-01-31 06:12 PM,7915,183,SOLD
+# Total profit: 111476
+
+Earth talisman,2026-01-15 09:22 PM,1,1599,BOUGHT
+# Total profit: 0
+
+Water battlestaff,2026-01-14 09:32 PM,1,8851,SOLD
+# Total profit: 0
+
+Battlestaff,2026-01-14 09:25 PM,736,8449,BOUGHT
+# Total profit: 0
+
+Water orb,2026-01-14 09:24 PM,736,734,BOUGHT
+# Total profit: 0
+
+Jade,2026-01-14 09:21 PM,3,331,SOLD
+# Total profit: 0
+
+Diamond,2026-01-14 09:21 PM,31,1686,SOLD
+# Total profit: 0
+
+Uncut ruby,2026-01-14 09:15 PM,100,1136,BOUGHT
+Uncut ruby,2026-01-14 09:21 PM,1,1079,SOLD
+Uncut ruby,2026-01-16 07:39 PM,2,1041,SOLD
+Uncut ruby,2026-01-31 06:36 PM,605,1203,BOUGHT
+Uncut ruby,2026-01-31 06:52 PM,605,1218,SOLD
+# Total profit: 15327
+
+Uncut diamond,2026-01-14 09:13 PM,200,2598,BOUGHT
+Uncut diamond,2026-01-14 09:16 PM,177,2520,SOLD
+# Total profit: -13806
+
+Uncut emerald,2026-01-14 09:08 PM,110,516,BOUGHT
+# Total profit: 0
+
+Stamina potion(4),2026-01-14 08:30 PM,1,8674,BOUGHT
+Stamina potion(4),2026-01-31 07:54 PM,297,5610,BOUGHT
+Stamina potion(4),2026-01-31 08:26 PM,297,5673,SOLD
+# Total profit: 15647
+
+Maple blackjack,2026-01-14 06:49 PM,1,11000,BOUGHT
+# Total profit: 0
+
+Saradomin brew(4),2026-01-14 05:56 PM,1,9350,BOUGHT
+Saradomin brew(4),2026-01-14 05:57 PM,10,9350,BOUGHT
+Saradomin brew(4),2026-01-31 12:17 PM,304,8215,BOUGHT
+Saradomin brew(4),2026-01-31 12:34 PM,304,8293,SOLD
+# Total profit: 11227
+
+Civitas illa fortis teleport,2026-01-14 05:51 PM,10,901,BOUGHT
+Civitas illa fortis teleport,2026-01-14 08:56 PM,1,856,BOUGHT
+# Total profit: 0
+
+Quetzal feed,2026-01-14 05:01 PM,30,6326,BOUGHT
+# Total profit: 0
+
+Limestone brick,2026-01-14 05:01 PM,12,270,BOUGHT
+Limestone brick,2026-01-17 08:02 AM,6,270,BOUGHT
+# Total profit: 0
+
+Amulet of fury,2026-01-14 04:47 PM,1,1896762,BOUGHT
+Amulet of fury,2026-01-17 07:22 AM,3,1807137,BOUGHT
+Amulet of fury,2026-01-17 07:24 AM,3,1813000,SOLD
+# Total profit: -72036
+
+Monkey nuts,2026-01-14 03:33 PM,1,122,BOUGHT
+Monkey nuts,2026-01-14 03:57 PM,1,122,BOUGHT
+# Total profit: 0
+
+Mind altar teleport,2026-01-14 03:27 PM,1,2073,BOUGHT
+Mind altar teleport,2026-01-16 02:23 PM,78,1995,CANCELLED_SELL
+Mind altar teleport,2026-01-16 02:55 PM,395,1992,SOLD
+Mind altar teleport,2026-01-16 04:03 PM,1,1998,BOUGHT
+Mind altar teleport,2026-01-16 05:15 PM,1,1995,BOUGHT
+# Total profit: -81
+
+Lumbridge teleport,2026-01-14 03:26 PM,100,619,BOUGHT
+# Total profit: 0
+
+Orange,2026-01-14 03:25 PM,1,113,BOUGHT
+# Total profit: 0
+
+Harmony island teleport,2026-01-14 02:56 PM,2,2769,BOUGHT
+# Total profit: 0
+
+Garlic,2026-01-12 08:58 PM,1,20,BOUGHT
+# Total profit: 0
+
+Silver dust,2026-01-12 08:58 PM,1,772,BOUGHT
+# Total profit: 0
+
+Garlic powder,2026-01-12 08:57 PM,1,130,BOUGHT
+Garlic powder,2026-01-12 09:06 PM,1,118,SOLD
+# Total profit: -12
+
+Barb-tail harpoon,2026-01-11 09:54 AM,1,20,BOUGHT
+# Total profit: 0
+
+Super fishing potion(4),2026-01-11 09:53 AM,1,2800,BOUGHT
+# Total profit: 0
+
+Impling jar,2026-01-11 09:10 AM,1,726,BOUGHT
+# Total profit: 0
+
+Pure essence,2026-01-11 09:09 AM,1000,2,BOUGHT
+# Total profit: 0
+
+Karambwan vessel,2026-01-10 11:06 PM,1,2331,BOUGHT
+# Total profit: 0
+
+Trading sticks,2026-01-10 11:06 PM,500,6,BOUGHT
+# Total profit: 0
+
+Opal,2026-01-10 11:06 PM,3,213,BOUGHT
+# Total profit: 0
+
+Teasing stick,2026-01-10 11:05 PM,1,11,BOUGHT
+# Total profit: 0
+
+Arrow shaft,2026-01-10 11:05 PM,1,1,BOUGHT
+# Total profit: 0
+
+Gout tuber,2026-01-10 11:04 PM,1,355000,BOUGHT
+# Total profit: 0
+
+Spider carcass,2026-01-10 10:58 PM,1,522,BOUGHT
+# Total profit: 0
+
+Admiral pie,2026-01-10 10:56 PM,2,103,BOUGHT
+Admiral pie,2026-01-16 04:12 PM,1,107,BOUGHT
+# Total profit: 0
+
+King worm,2026-01-10 09:41 PM,1,371,BOUGHT
+# Total profit: 0
+
+Mahogany logs,2026-01-10 09:11 PM,20,210,BOUGHT
+# Total profit: 0
+
+Compost,2026-01-10 08:06 PM,1,9,BOUGHT
+# Total profit: 0
+
+Limpwurt seed,2026-01-10 08:06 PM,1,30,BOUGHT
+# Total profit: 0
+
+Limpwurt root,2026-01-10 08:05 PM,1,260,BOUGHT
+# Total profit: 0
+
+Bow string,2026-01-10 08:05 PM,1,78,BOUGHT
+# Total profit: 0
+
+Maple shortbow (u),2026-01-10 08:05 PM,1,81,BOUGHT
+# Total profit: 0
+
+Rune thrownaxe,2026-01-10 06:19 PM,1,220,BOUGHT
+# Total profit: 0
+
+Butterfly jar,2026-01-10 06:17 PM,1,10,BOUGHT
+# Total profit: 0
+
+Butterfly net,2026-01-10 06:17 PM,1,5,BOUGHT
+# Total profit: 0
+
+Marrentill,2026-01-10 05:38 PM,1,188,BOUGHT
+# Total profit: 0
+
+Bullseye lantern,2026-01-10 05:30 PM,1,1135,BOUGHT
+# Total profit: 0
+
+Willow branch,2026-01-10 05:19 PM,6,2615,BOUGHT
+# Total profit: 0
+
+Brown apron,2026-01-10 05:18 PM,1,50,BOUGHT
+# Total profit: 0
+
+Watermelon,2026-01-10 05:18 PM,1,19,BOUGHT
+# Total profit: 0
+
+Empty sack,2026-01-10 05:18 PM,1,3,BOUGHT
+# Total profit: 0
+
+Crystal key,2026-01-10 05:18 PM,1,20999,BOUGHT
+# Total profit: 0
+
+Combat bracelet(6),2026-01-10 05:18 PM,1,12864,BOUGHT
+# Total profit: 0
+
+Teleport to house,2026-01-10 04:54 PM,1,530,BOUGHT
+Teleport to house,2026-01-12 07:47 PM,1000,520,BOUGHT
+Teleport to house,2026-01-17 08:59 AM,4165,528,CANCELLED_BUY
+Teleport to house,2026-01-17 09:08 AM,4165,535,SOLD
+# Total profit: 37153
+
+Goat horn dust,2026-01-10 04:54 PM,1,77,BOUGHT
+# Total profit: 0
+
+Yanillian hops,2026-01-10 03:46 PM,200,402,BOUGHT
+Yanillian hops,2026-01-10 10:30 PM,200,415,SOLD
+# Total profit: 2600
+
+Mahogany sapling,2026-01-10 03:46 PM,20,1123,BOUGHT
+Mahogany sapling,2026-01-10 03:53 PM,5,1109,SOLD
+# Total profit: -70
+
+Yew logs,2026-01-10 02:39 PM,11,190,BOUGHT
+Yew logs,2026-01-10 02:54 PM,20,189,BOUGHT
+Yew logs,2026-01-10 02:55 PM,100,190,BOUGHT
+Yew logs,2026-01-16 05:18 PM,12000,167,BOUGHT
+Yew logs,2026-01-16 05:55 PM,12000,172,SOLD
+Yew logs,2026-01-17 07:30 AM,12000,171,SOLD
+# Total profit: 57531
+
+Raw swordfish,2026-01-10 02:39 PM,1,194,BOUGHT
+# Total profit: 0
+
+Strawberry seed,2026-01-10 02:38 PM,5,25,BOUGHT
+# Total profit: 0
+
+Mith grapple,2026-01-10 02:38 PM,1,3108,BOUGHT
+Mith grapple,2026-01-11 09:09 AM,2,3000,BOUGHT
+Mith grapple,2026-01-16 07:39 PM,2,2045,SOLD
+# Total profit: -2018
+
+Willow shortbow (u),2026-01-10 02:53 PM,2378,37,SOLD
+# Total profit: 0
+
+Emerald,2026-01-10 09:26 AM,1,451,BOUGHT
+Emerald,2026-01-15 06:32 PM,120,484,SOLD
+# Total profit: 33
+
+Defence potion(4),2026-01-10 03:34 AM,2,750,BOUGHT
+# Total profit: 0
+
+Pot of cornflour,2026-01-09 11:58 PM,1,1997,BOUGHT
+# Total profit: 0
+
+Pot of cream,2026-01-09 11:58 PM,1,16,BOUGHT
+# Total profit: 0
+
+Raw chicken,2026-01-09 11:58 PM,1,40,BOUGHT
+Raw chicken,2026-01-10 01:13 AM,1,40,BOUGHT
+Raw chicken,2026-01-10 02:38 PM,1,29,BOUGHT
+# Total profit: 0
+
+Falador teleport,2026-01-09 11:14 PM,1,650,BOUGHT
+# Total profit: 0
+
+Oranges(5),2025-12-31 02:44 PM,10,569,BOUGHT
+Oranges(5),2026-01-10 03:51 PM,100,657,BOUGHT
+# Total profit: 0
+
+Maple sapling,2025-12-31 02:43 PM,10,3696,BOUGHT
+Maple sapling,2026-01-10 03:50 PM,20,3793,BOUGHT
+# Total profit: 0
+
+Adamant bolts,2025-12-31 02:11 PM,478,199,SOLD
+# Total profit: 0
+
+Broad bolts,2025-12-31 02:11 PM,3000,68,BOUGHT
+Broad bolts,2026-01-10 02:37 PM,1000,62,BOUGHT
+Broad bolts,2026-01-10 11:12 PM,1000,63,BOUGHT
+# Total profit: 0
+
+Games necklace(8),2025-12-30 10:51 PM,1,741,BOUGHT
+Games necklace(8),2026-01-10 01:55 AM,1,718,BOUGHT
+Games necklace(8),2026-01-16 06:18 PM,1,707,BOUGHT
+# Total profit: 0
+
+Supercompost,2025-12-30 10:51 PM,1,37,BOUGHT
+Supercompost,2025-12-30 10:51 PM,7,37,BOUGHT
+# Total profit: 0
+
+Curry sapling,2025-12-30 10:14 PM,1,879,BOUGHT
+# Total profit: 0
+
+Red topaz machete,2025-12-30 10:07 PM,1,15000,BOUGHT
+# Total profit: 0
+
+Willow logs,2025-12-30 09:32 PM,1,56,BOUGHT
+Willow logs,2026-01-10 12:32 PM,3000,43,BOUGHT
+Willow logs,2026-01-10 02:39 PM,622,42,SOLD
+Willow logs,2026-01-10 09:11 PM,11,47,BOUGHT
+# Total profit: -635
+
+Bucket of sand,2025-12-30 08:56 PM,1,17,BOUGHT
+Bucket of sand,2026-01-16 07:48 PM,84,15,SOLD
+# Total profit: -2
+
+White berries,2025-12-30 08:55 PM,1,297,BOUGHT
+# Total profit: 0
+
+Beer,2025-12-30 08:55 PM,1,78,BOUGHT
+# Total profit: 0
+
+Unpowered orb,2025-12-30 08:54 PM,412,68,SOLD
+Unpowered orb,2026-01-17 07:28 AM,3501,69,CANCELLED_BUY
+Unpowered orb,2026-01-17 07:41 AM,3501,75,SOLD
+# Total profit: 18122
+
+Glassblowing pipe,2025-12-30 08:35 PM,1,100,BOUGHT
+Glassblowing pipe,2026-01-16 07:56 PM,1,132,SOLD
+# Total profit: 32
+
+Sapphire dragon bolts (e),2025-12-30 08:16 PM,1,4000,BOUGHT
+Sapphire dragon bolts (e),2025-12-30 09:01 PM,1,3920,SOLD
+Sapphire dragon bolts (e),2025-12-31 01:51 PM,1,3750,BOUGHT
+Sapphire dragon bolts (e),2025-12-31 01:52 PM,1,3966,SOLD
+# Total profit: 136
+
+Raw cod,2025-12-30 07:38 PM,1,44,BOUGHT
+# Total profit: 0
+
+Steel arrow,2025-12-30 07:24 PM,4,26,SOLD
+Steel arrow,2026-01-16 07:30 PM,932,28,SOLD
+# Total profit: 0
+
+Mahogany plank,2025-12-30 07:06 PM,1,1899,BOUGHT
+Mahogany plank,2026-01-17 08:43 AM,100,1821,BOUGHT
+Mahogany plank,2026-01-17 09:37 AM,1000,1821,BOUGHT
+Mahogany plank,2026-01-31 04:23 PM,861,1972,BOUGHT
+Mahogany plank,2026-01-31 04:38 PM,861,1931,SOLD
+Mahogany plank,2026-01-31 05:16 PM,1176,2001,BOUGHT
+Mahogany plank,2026-01-31 05:18 PM,1176,2028,SOLD
+Mahogany plank,2026-01-31 07:15 PM,753,2000,BOUGHT
+Mahogany plank,2026-01-31 07:19 PM,14,2058,CANCELLED_SELL
+Mahogany plank,2026-01-31 07:27 PM,739,2049,SOLD
+Mahogany plank,2026-01-31 07:30 PM,1490,2000,BOUGHT
+Mahogany plank,2026-01-31 07:51 PM,1490,2058,SOLD
+Mahogany plank,2026-01-31 08:37 PM,541,2019,BOUGHT
+Mahogany plank,2026-01-31 08:43 PM,541,2035,SOLD
+Mahogany plank,2026-01-31 08:44 PM,698,1984,BOUGHT
+Mahogany plank,2026-01-31 08:44 PM,698,2030,SOLD
+Mahogany plank,2026-01-31 08:51 PM,1143,1991,BOUGHT
+Mahogany plank,2026-01-31 08:58 PM,1143,2027,SOLD
+Mahogany plank,2026-01-31 09:05 PM,1147,1982,BOUGHT
+Mahogany plank,2026-02-01 09:21 AM,1147,1975,SOLD
+# Total profit: 370960
+
+Oak plank,2025-12-30 07:06 PM,10,350,BOUGHT
+Oak plank,2025-12-30 07:18 PM,100,359,BOUGHT
+Oak plank,2026-01-10 06:17 PM,1,373,BOUGHT
+Oak plank,2026-01-16 07:55 PM,94,361,SOLD
+Oak plank,2026-01-17 07:50 AM,356,375,CANCELLED_BUY
+Oak plank,2026-01-17 07:50 AM,644,376,BOUGHT
+Oak plank,2026-01-17 08:58 AM,5000,383,BOUGHT
+# Total profit: 278
+
+Bear fur,2025-12-30 06:59 PM,1,82,BOUGHT
+# Total profit: 0
+
+Fire talisman,2025-12-30 05:01 PM,1,1685,BOUGHT
+# Total profit: 0
+
+Mind talisman,2025-12-30 05:01 PM,1,2490,BOUGHT
+# Total profit: 0
+
+Ranging potion(4),2025-12-28 11:49 AM,10,4962,BOUGHT
+# Total profit: 0
+
+Necklace mould,2025-12-27 12:04 PM,1,430,BOUGHT
+# Total profit: 0
+
+Ring mould,2025-12-27 12:03 PM,1,300,BOUGHT
+# Total profit: 0
+
+Ruby,2025-12-27 12:03 PM,1,840,BOUGHT
+Ruby,2025-12-27 12:03 PM,1,840,BOUGHT
+Ruby,2026-01-14 09:24 PM,116,873,SOLD
+# Total profit: 66
+
+Bass,2025-12-27 12:03 PM,1,165,BOUGHT
+# Total profit: 0
+
+Tuna,2025-12-27 12:02 PM,1,112,BOUGHT
+Tuna,2026-01-16 04:50 PM,6000,94,BOUGHT
+Tuna,2026-01-16 06:15 PM,6000,99,SOLD
+# Total profit: 29982
+
+Salmon,2025-12-27 12:02 PM,1,61,BOUGHT
+# Total profit: 0
+
+Shrimps,2025-12-27 12:02 PM,1,21,BOUGHT
+# Total profit: 0
+
+Burnt page,2025-12-27 11:57 AM,10,5814,BOUGHT
+# Total profit: 0
+
+Mystic steam staff,2025-12-26 10:53 AM,1,125775,BOUGHT
+# Total profit: 0
+
+Yak-hide armour,2025-12-26 09:21 AM,1,9999,BOUGHT
+Yak-hide armour,2026-01-16 06:52 PM,1,1847,SOLD
+# Total profit: -8152
+
+Yak-hide armour,2025-12-26 09:21 AM,1,4916,BOUGHT
+Yak-hide armour,2026-01-16 06:52 PM,1,1516,SOLD
+# Total profit: -3400
+
+Neitiznot shield,2025-12-26 09:21 AM,1,3087,BOUGHT
+# Total profit: 0
+
+Split log,2025-12-26 09:20 AM,8,990,BOUGHT
+# Total profit: 0
+
+Raw tuna,2025-12-26 09:20 AM,1,116,BOUGHT
+# Total profit: 0
+
+Bones to peaches,2025-12-25 01:06 PM,1,850,BOUGHT
+# Total profit: 0
+
+Ball of wool,2025-12-24 11:04 AM,4,29,BOUGHT
+Ball of wool,2026-01-16 07:41 PM,1,56,SOLD
+# Total profit: 27
+
+Limestone,2025-12-24 11:03 AM,1,189,BOUGHT
+# Total profit: 0
+
+Summer pie,2025-12-23 08:15 PM,10,988,BOUGHT
+Summer pie,2026-01-16 07:23 PM,59,1054,SOLD
+# Total profit: 660
+
+Ice plateau teleport,2025-12-23 08:15 PM,1,2000,BOUGHT
+# Total profit: 0
+
+Marigolds,2025-12-23 09:39 AM,1,87,SOLD
+# Total profit: 0
+
+Mort'ton teleport,2025-12-22 10:33 PM,2,17844,BOUGHT
+Mort'ton teleport,2025-12-22 10:54 PM,2,17840,BOUGHT
+Mort'ton teleport,2026-01-12 08:59 PM,2,17649,BOUGHT
+# Total profit: 0
+
+Blood moon armour set,2025-12-21 09:28 AM,1,13389999,BOUGHT
+# Total profit: 0
+
+Old school bond,2025-12-21 09:24 AM,1,14900000,SOLD
+# Total profit: 0
+
+Weapon poison(+),2025-12-21 01:19 AM,1,870,BOUGHT
+# Total profit: 0
+
+Unlit torch,2025-12-21 12:57 AM,1,40,BOUGHT
+# Total profit: 0
+
+Needle,2025-12-21 12:29 AM,1,27,BOUGHT
+Needle,2025-12-30 06:58 PM,1,29,BOUGHT
+# Total profit: 0
+
+Sanfew serum(4),2025-12-20 11:32 PM,1,14370,BOUGHT
+# Total profit: 0
+
+Charcoal,2025-12-20 10:11 PM,1,183,BOUGHT
+Charcoal,2026-01-16 07:47 PM,2,196,SOLD
+# Total profit: 13
+
+Tomato,2025-12-20 09:59 PM,1,23,BOUGHT
+# Total profit: 0
+
+Cabbage,2025-12-20 09:58 PM,1,35,BOUGHT
+Cabbage,2026-01-16 04:07 PM,6000,11,BOUGHT
+Cabbage,2026-01-16 04:38 PM,6000,15,SOLD
+# Total profit: 23976
+
+Wolf bones,2025-12-20 09:36 PM,4,999,BOUGHT
+# Total profit: 0
+
+Bronze wire,2025-12-20 09:11 PM,1,337,BOUGHT
+Bronze wire,2025-12-20 09:12 PM,2,337,BOUGHT
+Bronze wire,2025-12-20 10:11 PM,1,372,BOUGHT
+# Total profit: 0
+
+Molten glass,2025-12-20 08:38 PM,1,105,BOUGHT
+Molten glass,2025-12-21 12:05 AM,1,105,BOUGHT
+Molten glass,2025-12-30 07:23 PM,3,140,BOUGHT
+Molten glass,2025-12-30 08:35 PM,1,140,BOUGHT
+Molten glass,2025-12-30 08:36 PM,1000,140,BOUGHT
+Molten glass,2025-12-30 08:54 PM,589,133,SOLD
+# Total profit: -4053
+
+Yew shortbow (u),2025-12-20 06:47 PM,319,300,CANCELLED_BUY
+Yew shortbow (u),2025-12-20 06:51 PM,319,343,SOLD
+Yew shortbow (u),2025-12-20 10:02 PM,1769,343,SOLD
+Yew shortbow (u),2025-12-20 10:41 PM,10000,299,BOUGHT
+Yew shortbow (u),2025-12-20 11:32 PM,5892,343,CANCELLED_SELL
+Yew shortbow (u),2025-12-21 08:48 AM,2339,339,SOLD
+Yew shortbow (u),2025-12-21 09:47 AM,10000,274,BOUGHT
+Yew shortbow (u),2025-12-25 12:49 PM,29831,304,SOLD
+Yew shortbow (u),2025-12-26 09:16 AM,8882,250,BUYING
+Yew shortbow (u),2025-12-27 11:59 AM,897,250,CANCELLED_BUY
+Yew shortbow (u),2026-01-10 08:03 PM,17083,282,CANCELLED_BUY
+Yew shortbow (u),2026-01-11 06:16 PM,50000,282,BOUGHT
+Yew shortbow (u),2026-01-12 07:20 PM,11316,481,SELLING
+# Total profit: 3745455
+
+Snape grass seed,2025-12-20 06:35 PM,1,2200,BOUGHT
+Snape grass seed,2025-12-20 06:35 PM,1,2050,BOUGHT
+Snape grass seed,2025-12-20 06:35 PM,1,2100,BOUGHT
+Snape grass seed,2025-12-20 06:36 PM,1,2020,CANCELLED_BUY
+Snape grass seed,2025-12-20 06:37 PM,4,2235,SOLD
+Snape grass seed,2025-12-20 06:40 PM,17,2050,CANCELLED_BUY
+Snape grass seed,2025-12-20 06:43 PM,17,2450,SOLD
+Snape grass seed,2025-12-30 01:52 PM,3,1688,SOLD
+# Total profit: 7370
+
+Chef's hat,2025-12-20 06:18 PM,1,499,BOUGHT
+# Total profit: 0
+
+Dwarven stout,2025-12-20 06:10 PM,1,200,BOUGHT
+# Total profit: 0
+
+Seed dibber,2025-12-20 06:10 PM,1,77,BOUGHT
+# Total profit: 0
+
+Barley malt,2025-12-20 06:10 PM,2,646,BOUGHT
+# Total profit: 0
+
+Bucket of water,2025-12-20 06:10 PM,2,26,BOUGHT
+# Total profit: 0
+
+Steel bar,2025-12-20 05:02 PM,10,535,BOUGHT
+Steel bar,2026-01-31 04:14 PM,2488,521,BOUGHT
+Steel bar,2026-01-31 04:19 PM,2488,532,SOLD
+Steel bar,2026-01-31 04:45 PM,610,528,CANCELLED_BUY
+Steel bar,2026-01-31 04:47 PM,610,548,SOLD
+Steel bar,2026-01-31 05:56 PM,6710,531,BOUGHT
+Steel bar,2026-01-31 06:10 PM,6710,548,SOLD
+Steel bar,2026-01-31 06:31 PM,192,542,CANCELLED_BUY
+Steel bar,2026-01-31 06:32 PM,192,548,SOLD
+Steel bar,2026-01-31 08:33 PM,2488,546,BOUGHT
+Steel bar,2026-01-31 08:36 PM,2488,551,SOLD
+# Total profit: 167340
+
+Mithril bar,2025-12-20 05:02 PM,10,833,BOUGHT
+Mithril bar,2026-01-17 10:01 AM,100,964,BOUGHT
+# Total profit: 0
+
+Gold bar,2025-12-20 05:00 PM,10,112,BOUGHT
+Gold bar,2026-01-16 07:34 PM,10000,103,BOUGHT
+Gold bar,2026-01-16 07:47 PM,10000,106,SOLD
+# Total profit: 29910
+
+Silver bar,2025-12-20 05:00 PM,10,109,BOUGHT
+# Total profit: 0
+
+Bronze bar,2025-12-20 04:59 PM,10,83,BOUGHT
+# Total profit: 0
+
+Mithril ore,2025-12-20 04:59 PM,10,114,BOUGHT
+Mithril ore,2026-01-16 07:20 PM,7,96,SOLD
+# Total profit: -126
+
+Gold ore,2025-12-20 04:59 PM,10,112,BOUGHT
+# Total profit: 0
+
+Silver ore,2025-12-20 04:59 PM,10,51,BOUGHT
+# Total profit: 0
+
+Tin ore,2025-12-20 04:58 PM,10,13,BOUGHT
+Tin ore,2026-01-16 06:50 PM,10,10,SOLD
+# Total profit: -30
+
+Copper ore,2025-12-20 04:58 PM,10,12,BOUGHT
+Copper ore,2026-01-16 06:50 PM,7,8,SOLD
+# Total profit: -28
+
+Clay,2025-12-20 04:58 PM,10,122,BOUGHT
+Clay,2026-01-16 06:50 PM,12,136,SOLD
+# Total profit: 140
+
+Sapphire,2025-12-20 04:57 PM,3,265,BOUGHT
+Sapphire,2026-01-15 06:32 PM,6,267,SOLD
+# Total profit: 6
+
+Uncut sapphire,2025-12-20 04:57 PM,1,351,BOUGHT
+Uncut sapphire,2026-01-14 09:21 PM,12,272,SOLD
+# Total profit: -79
+
+Jangerberries,2025-12-20 02:52 PM,1,340,BOUGHT
+# Total profit: 0
+
+Guam potion (unf),2025-12-20 02:52 PM,1,405,BOUGHT
+# Total profit: 0
+
+Dragon bones,2025-12-20 02:51 PM,1,1471,BOUGHT
+# Total profit: 0
+
+Dwarven stout(m),2025-12-20 02:50 PM,1,14777,BOUGHT
+Dwarven stout(m),2026-01-16 07:20 PM,2,14627,SOLD
+# Total profit: -150
+
+Adamant pickaxe,2025-12-20 02:41 PM,1,1895,BOUGHT
+# Total profit: 0
+
+Marrentill potion (unf),2025-12-20 02:17 PM,1,293,BOUGHT
+# Total profit: 0
+
+Vodka,2025-12-20 02:17 PM,2,75,BOUGHT
+# Total profit: 0
+
+Digsite teleport,2025-12-20 02:16 PM,5,10845,BOUGHT
+# Total profit: 0
+
+Rune essence,2025-12-20 12:55 PM,10,12,BOUGHT
+Rune essence,2025-12-30 06:03 PM,100,12,BOUGHT
+# Total profit: 0
+
+Dragon sword,2025-12-19 06:13 PM,1,223827,SOLD
+# Total profit: 0
+
+Abyssal dagger,2025-12-19 06:12 PM,1,3400000,BOUGHT
+# Total profit: 0
+
+Dust battlestaff,2025-12-19 01:43 PM,1,13766,BOUGHT
+# Total profit: 0
+
+Earth rune,2025-12-19 12:40 PM,1000,5,BOUGHT
+# Total profit: 0
+
+Tinderbox,2025-12-19 11:27 AM,1,81,BOUGHT
+# Total profit: 0
+
+Weeds,2025-12-19 11:27 AM,1,329,BOUGHT
+# Total profit: 0
+
+Red spiders' eggs,2025-12-19 11:26 AM,1,158,BOUGHT
+# Total profit: 0
+
+Kwuarm,2025-12-19 11:26 AM,1,3301,BOUGHT
+Kwuarm,2026-01-10 05:38 PM,1,3235,BOUGHT
+# Total profit: 0
+
+Unicorn horn dust,2025-12-19 11:26 AM,1,234,BOUGHT
+Unicorn horn dust,2026-01-10 05:38 PM,1,185,BOUGHT
+# Total profit: 0
+
+Asgarnian ale,2025-12-19 10:21 AM,1,152,BOUGHT
+Asgarnian ale,2025-12-19 10:21 AM,3,152,BOUGHT
+# Total profit: 0
+
+Egg,2025-12-19 10:20 AM,1,29,BOUGHT
+# Total profit: 0
+
+Pot of flour,2025-12-19 10:20 AM,1,123,BOUGHT
+# Total profit: 0
+
+Catherby teleport,2025-12-19 09:51 AM,1,1589,BOUGHT
+# Total profit: 0
+
+Redberry pie,2025-12-18 08:20 PM,1,221,BOUGHT
+Redberry pie,2025-12-20 04:57 PM,1,174,BOUGHT
+# Total profit: 0
+
+Swamp paste,2025-12-18 03:31 PM,1,20,BOUGHT
+# Total profit: 0
+
+Soft clay,2025-12-18 02:57 PM,1,124,BOUGHT
+Soft clay,2025-12-18 02:57 PM,3,124,BOUGHT
+Soft clay,2025-12-30 06:59 PM,1,196,BOUGHT
+Soft clay,2025-12-30 09:32 PM,1,190,BOUGHT
+Soft clay,2026-01-14 05:02 PM,12,244,BOUGHT
+# Total profit: 0
+
+Papyrus,2025-12-18 02:57 PM,1,22,BOUGHT
+Papyrus,2025-12-20 10:11 PM,1,40,BOUGHT
+# Total profit: 0
+
+Nardah teleport,2025-12-18 02:21 PM,1,51511,BOUGHT
+Nardah teleport,2025-12-18 02:36 PM,1,49083,BOUGHT
+Nardah teleport,2025-12-18 02:41 PM,1,51000,BOUGHT
+Nardah teleport,2025-12-18 02:58 PM,1,51580,BOUGHT
+# Total profit: 0
+
+Bag of salt,2025-12-18 02:19 PM,1,23,BOUGHT
+# Total profit: 0
+
+Bucket of sap,2025-12-18 02:19 PM,1,748,BOUGHT
+# Total profit: 0
+
+Leather,2025-12-18 01:57 PM,1,279,BOUGHT
+Leather,2026-01-11 09:10 AM,1,248,BOUGHT
+# Total profit: 0
+
+Coal,2025-12-18 01:56 PM,1,242,BOUGHT
+Coal,2025-12-18 01:56 PM,3,247,BOUGHT
+Coal,2025-12-20 09:59 AM,8,266,BOUGHT
+Coal,2025-12-20 10:24 AM,6,267,BOUGHT
+Coal,2025-12-20 04:57 PM,1,245,BOUGHT
+Coal,2025-12-20 04:58 PM,10,246,BOUGHT
+Coal,2025-12-24 11:05 AM,20,224,BOUGHT
+Coal,2026-01-16 02:27 PM,2327,290,SOLD
+Coal,2026-01-17 09:26 AM,13000,280,BOUGHT
+Coal,2026-01-17 09:58 AM,13000,281,SOLD
+Coal,2026-01-31 04:43 PM,652,275,CANCELLED_BUY
+Coal,2026-01-31 05:19 PM,652,290,SOLD
+Coal,2026-01-31 06:27 PM,12348,271,BOUGHT
+Coal,2026-01-31 06:33 PM,12348,273,SOLD
+# Total profit: 88514
+
+Pest control teleport,2025-12-17 08:49 AM,10,1330,BOUGHT
+# Total profit: 0
+
+Ham robe,2025-12-16 08:50 PM,1,499,BOUGHT
+# Total profit: 0
+
+Ham shirt,2025-12-16 08:49 PM,1,1,BOUGHT
+# Total profit: 0
+
+Ham hood,2025-12-16 08:49 PM,1,150,BOUGHT
+# Total profit: 0
+
+Ham logo,2025-12-16 08:48 PM,1,3250,BOUGHT
+Ham logo,2025-12-16 08:49 PM,1,3250,BOUGHT
+# Total profit: 0
+
+Ham boots,2025-12-16 08:48 PM,1,4250,BOUGHT
+Ham boots,2025-12-16 08:49 PM,1,4250,BOUGHT
+# Total profit: 0
+
+Ham cloak,2025-12-16 08:48 PM,1,3470,BOUGHT
+Ham cloak,2025-12-16 08:49 PM,1,3297,BOUGHT
+# Total profit: 0
+
+Ham gloves,2025-12-16 08:48 PM,1,2500,BOUGHT
+Ham gloves,2025-12-16 08:49 PM,1,2500,BOUGHT
+# Total profit: 0
+
+Arceuus library teleport,2025-12-16 08:28 PM,1,2145,BOUGHT
+# Total profit: 0
+
+Necklace of passage(5),2025-12-16 07:01 PM,1,1323,BOUGHT
+# Total profit: 0
+
+Sapphire amulet,2025-12-16 07:00 PM,1,509,BOUGHT
+# Total profit: 0
+
+Oak longbow,2025-12-16 06:21 PM,1,74,BOUGHT
+# Total profit: 0
+
+Yellow dye,2025-12-16 06:21 PM,3,125,BOUGHT
+# Total profit: 0
+
+Red dye,2025-12-16 06:21 PM,3,225,BOUGHT
+Red dye,2025-12-30 06:58 PM,1,202,BOUGHT
+# Total profit: 0
+
+Blue dye,2025-12-16 06:20 PM,3,599,BOUGHT
+# Total profit: 0
+
+Spade,2025-12-16 06:19 PM,1,1,BOUGHT
+Spade,2026-01-16 06:49 PM,1,88,SOLD
+# Total profit: 87
+
+Bowl of water,2025-12-16 06:19 PM,1,25,BOUGHT
+Bowl of water,2025-12-19 10:21 AM,1,70,BOUGHT
+# Total profit: 0
+
+Bucket of milk,2025-12-16 06:16 PM,1,44,BOUGHT
+Bucket of milk,2025-12-19 10:20 AM,1,43,BOUGHT
+Bucket of milk,2025-12-19 11:26 AM,1,43,BOUGHT
+Bucket of milk,2026-01-09 11:58 PM,1,40,BOUGHT
+Bucket of milk,2026-01-10 05:38 PM,1,38,BOUGHT
+# Total profit: 0
+
+Bones,2025-12-16 06:02 PM,10,31,BOUGHT
+Bones,2025-12-20 10:39 PM,3,33,BOUGHT
+Bones,2026-01-16 04:16 PM,7,39,BOUGHT
+# Total profit: 0
+
+Pot,2025-12-16 05:34 PM,8,30,BOUGHT
+Pot,2025-12-19 11:27 AM,1,30,BOUGHT
+Pot,2025-12-30 11:51 PM,27,56,BOUGHT
+# Total profit: 0
+
+Draynor manor teleport,2025-12-16 04:13 PM,2,2149,BOUGHT
+# Total profit: 0
+
+Bat bones,2025-12-16 03:48 PM,1,527,BOUGHT
+Bat bones,2025-12-20 02:52 PM,1,210,BOUGHT
+Bat bones,2025-12-20 06:20 PM,1,375,BOUGHT
+# Total profit: 0
+
+Bucket of wax,2025-12-16 03:47 PM,1,1065,BOUGHT
+# Total profit: 0
+
+Bread,2025-12-16 03:27 PM,10,64,BOUGHT
+Bread,2025-12-16 03:47 PM,1,52,BOUGHT
+# Total profit: 0
+
+Iron bar,2025-12-16 03:26 PM,1,199,BOUGHT
+Iron bar,2025-12-20 04:59 PM,10,197,BOUGHT
+# Total profit: 0
+
+Premade blurb' sp.,2025-12-16 03:26 PM,1,1180,BOUGHT
+# Total profit: 0
+
+Logs,2025-12-16 03:04 PM,1,61,BOUGHT
+Logs,2025-12-16 05:34 PM,1,63,BOUGHT
+Logs,2025-12-16 05:35 PM,7,63,BOUGHT
+# Total profit: 0
+
+Jug of water,2025-12-16 03:04 PM,1,23,BOUGHT
+# Total profit: 0
+
+Oak logs,2025-12-16 02:47 PM,3,32,BOUGHT
+# Total profit: 0
+
+Wool,2025-12-16 02:47 PM,1,40,BOUGHT
+# Total profit: 0
+
+Leather gloves,2025-12-16 02:32 PM,1,2,BOUGHT
+# Total profit: 0
+
+Cheese,2025-12-16 02:32 PM,1,42,BOUGHT
+Cheese,2025-12-19 11:25 AM,4,42,BOUGHT
+Cheese,2026-01-10 05:37 PM,4,69,BOUGHT
+# Total profit: 0
+
+Adamant arrow,2025-12-16 01:24 PM,1,60,BOUGHT
+Adamant arrow,2026-01-16 07:19 PM,13,84,SOLD
+Adamant arrow,2026-01-16 08:04 PM,1041,85,BUYING
+# Total profit: 12
+
+Harralander potion (unf),2025-12-16 01:24 PM,1,900,BOUGHT
+Harralander potion (unf),2026-01-10 04:54 PM,1,750,BOUGHT
+# Total profit: 0
+
+Kwuarm potion (unf),2025-12-16 01:21 PM,1,3800,BOUGHT
+Kwuarm potion (unf),2025-12-16 01:24 PM,1,3822,SOLD
+# Total profit: 22
+
+Amulet of glory(6),2025-12-16 01:14 PM,1,13910,BOUGHT
+Amulet of glory(6),2025-12-16 01:15 PM,1,13650,BOUGHT
+# Total profit: 0
+
+Black d'hide body,2025-12-16 05:07 PM,100,7065,BOUGHT
+Black d'hide body,2026-01-31 06:51 PM,70,6250,BOUGHT
+Black d'hide body,2026-01-31 06:51 PM,70,6436,SOLD
+# Total profit: -44030
+
+Red d'hide body,2025-12-16 01:40 PM,40,5700,CANCELLED_BUY
+Red d'hide body,2025-12-18 12:27 AM,150,5700,BOUGHT
+Red d'hide body,2025-12-18 01:56 PM,70,5700,CANCELLED_BUY
+Red d'hide body,2025-12-18 08:16 PM,70,5760,CANCELLED_BUY
+Red d'hide body,2025-12-19 06:06 PM,350,5648,CANCELLED_BUY
+Red d'hide body,2025-12-21 09:33 AM,593,5593,CANCELLED_BUY
+Red d'hide body,2025-12-23 09:39 AM,206,5434,BOUGHT
+Red d'hide body,2026-01-16 07:35 PM,310,5782,SOLD
+# Total profit: 22420
+
+Rune arrow,2026-01-16 06:38 PM,12,218,SOLD
+Rune arrow,2026-01-31 05:07 PM,11000,103,BOUGHT
+Rune arrow,2026-01-31 05:16 PM,11000,107,SOLD
+# Total profit: 45332
+
+Silk,2025-12-16 06:19 PM,1,17,BOUGHT
+Silk,2025-12-30 07:06 PM,1,31,BOUGHT
+# Total profit: 0
+
+Coif,2026-01-16 06:50 PM,2,20,SOLD
+# Total profit: 0
+
+Iron arrow,2026-01-16 07:42 PM,6600,8,SOLD
+# Total profit: 0
+
+Yew shortbow,2026-01-16 07:00 PM,1,371,SOLD
+# Total profit: 0
+
+Rune crossbow,2026-01-16 07:42 PM,1,9035,SOLD
+# Total profit: 0
+
+Green d'hide vambraces,2026-01-16 07:07 PM,1,1215,SOLD
+# Total profit: 0
+
+Green d'hide body,2026-01-16 07:03 PM,1,4239,SOLD
+# Total profit: 0
+
+Varrock teleport,2026-01-13 08:02 PM,1,545,BOUGHT
+Varrock teleport,2026-01-13 08:02 PM,100,545,BOUGHT
+Varrock teleport,2026-01-14 05:51 PM,1,550,BOUGHT
+# Total profit: 0
+
+Prayer potion(4),2026-01-10 04:02 PM,10,7828,BOUGHT
+Prayer potion(4),2026-01-16 05:48 PM,2,8000,BOUGHT
+# Total profit: 0
+
+Death rune,2026-01-17 07:42 AM,25000,119,BOUGHT
+Death rune,2026-01-17 08:07 AM,110,121,CANCELLED_SELL
+Death rune,2026-01-17 08:17 AM,24890,120,SOLD
+Death rune,2026-01-31 12:17 PM,17366,144,BOUGHT
+Death rune,2026-01-31 02:29 PM,17366,145,SOLD
+Death rune,2026-01-31 04:00 PM,16550,146,BOUGHT
+Death rune,2026-01-31 04:13 PM,16550,148,SOLD
+Death rune,2026-01-31 04:43 PM,8450,147,CANCELLED_BUY
+Death rune,2026-01-31 04:44 PM,8450,148,SOLD
+Death rune,2026-01-31 08:27 PM,11643,147,BOUGHT
+Death rune,2026-01-31 08:28 PM,11643,148,SOLD
+Death rune,2026-01-31 08:41 PM,5057,146,BOUGHT
+Death rune,2026-01-31 08:43 PM,5057,147,SOLD
+Death rune,2026-01-31 08:47 PM,1155,145,CANCELLED_BUY
+Death rune,2026-01-31 08:47 PM,1155,148,SOLD
+Death rune,2026-01-31 08:48 PM,5631,146,BOUGHT
+Death rune,2026-01-31 08:49 PM,5631,148,SOLD
+# Total profit: 115453
+
+Plank,2025-12-20 08:36 PM,2,173,BOUGHT
+Plank,2025-12-21 12:06 AM,1,171,BOUGHT
+Plank,2025-12-21 12:06 AM,1,171,BOUGHT
+Plank,2025-12-21 12:06 AM,1,171,BOUGHT
+Plank,2025-12-22 10:32 PM,2,179,BOUGHT
+Plank,2026-01-10 09:41 PM,3,157,BOUGHT
+Plank,2026-01-16 07:54 PM,28,150,SOLD
+# Total profit: -188
+
+Rope,2025-12-16 01:45 PM,1,32,BOUGHT
+Rope,2025-12-20 12:28 PM,1,32,BOUGHT
+Rope,2025-12-20 02:52 PM,2,25,BOUGHT
+Rope,2025-12-20 10:10 PM,1,32,BOUGHT
+Rope,2025-12-21 12:36 AM,2,35,BOUGHT
+Rope,2025-12-26 09:20 AM,9,69,BOUGHT
+Rope,2025-12-26 12:08 PM,1,35,BOUGHT
+Rope,2026-01-10 10:59 AM,1,35,BOUGHT
+# Total profit: 0
+
+Apples(5),2025-12-16 01:31 PM,4,352,BOUGHT
+Apples(5),2025-12-18 11:06 AM,6,386,BOUGHT
+Apples(5),2025-12-21 09:35 AM,5,402,BOUGHT
+# Total profit: 0
+
+Willow sapling,2025-12-16 01:30 PM,4,737,BOUGHT
+Willow sapling,2025-12-18 11:06 AM,5,770,BOUGHT
+Willow sapling,2025-12-19 09:42 AM,2,742,BOUGHT
+Willow sapling,2025-12-21 09:35 AM,5,797,BOUGHT
+# Total profit: 0
+
+Tomatoes(5),2025-12-16 01:31 PM,1,380,BOUGHT
+# Total profit: 0
+
+Oak sapling,2025-12-16 01:30 PM,1,647,BOUGHT
+Oak sapling,2026-01-16 06:50 PM,1,460,SOLD
+# Total profit: -187
+
+Skills necklace(6),2025-12-16 01:08 PM,1203,12172,SOLD
+Skills necklace(6),2025-12-16 01:11 PM,11,12100,CANCELLED_BUY
+Skills necklace(6),2025-12-16 01:12 PM,11,12172,SOLD
+Skills necklace(6),2025-12-16 01:16 PM,9,12172,SOLD
+Skills necklace(6),2025-12-16 01:16 PM,26,12102,CANCELLED_BUY
+Skills necklace(6),2025-12-16 01:18 PM,23,12172,SOLD
+Skills necklace(6),2025-12-16 01:18 PM,22,12120,CANCELLED_BUY
+Skills necklace(6),2025-12-16 01:24 PM,16,12172,SOLD
+Skills necklace(6),2025-12-16 05:15 PM,1000,12101,BOUGHT
+Skills necklace(6),2025-12-16 06:07 PM,1000,12180,SOLD
+Skills necklace(6),2025-12-16 08:18 PM,480,12101,BOUGHT
+Skills necklace(6),2025-12-19 06:08 PM,1,12115,SOLD
+Skills necklace(6),2025-12-20 09:51 AM,487,12115,SOLD
+Skills necklace(6),2025-12-20 07:05 PM,4,12000,CANCELLED_BUY
+Skills necklace(6),2025-12-20 07:05 PM,4,12143,SOLD
+Skills necklace(6),2025-12-20 10:10 PM,496,12001,BOUGHT
+Skills necklace(6),2025-12-20 10:10 PM,8,12143,CANCELLED_SELL
+Skills necklace(6),2025-12-20 10:23 PM,488,12143,SOLD
+Skills necklace(6),2025-12-20 11:37 PM,70,12142,SOLD
+Skills necklace(6),2025-12-21 12:04 AM,48,12143,SOLD
+Skills necklace(6),2025-12-21 09:28 AM,182,12143,SOLD
+Skills necklace(6),2025-12-21 09:47 AM,300,12001,CANCELLED_BUY
+Skills necklace(6),2026-01-09 11:13 PM,1,12640,BOUGHT
+Skills necklace(6),2026-01-10 02:33 AM,1,12638,BOUGHT
+Skills necklace(6),2026-01-10 09:44 PM,1,12592,BOUGHT
+Skills necklace(6),2026-01-15 08:33 PM,1,12899,BOUGHT
+# Total profit: 246942
+

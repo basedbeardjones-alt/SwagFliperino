@@ -1,0 +1,57 @@
+{
+  "accounts": {
+    "DaityasPls": {
+      "last_offers": {
+        "0": {
+          "amount_spent": 0,
+          "amount_traded": 0,
+          "item_id": 32380,
+          "status": "sell"
+        },
+        "1": {
+          "amount_spent": 0,
+          "amount_traded": 0,
+          "item_id": 0,
+          "status": "empty"
+        },
+        "2": {
+          "amount_spent": 0,
+          "amount_traded": 0,
+          "item_id": 0,
+          "status": "empty"
+        },
+        "3": {
+          "amount_spent": 0,
+          "amount_traded": 0,
+          "item_id": 0,
+          "status": "empty"
+        },
+        "4": {
+          "amount_spent": 386095,
+          "amount_traded": 5,
+          "item_id": 27670,
+          "status": "buy"
+        },
+        "5": {
+          "amount_spent": 9408,
+          "amount_traded": 7,
+          "item_id": 12631,
+          "status": "buy"
+        },
+        "6": {
+          "amount_spent": 4345584,
+          "amount_traded": 6,
+          "item_id": 23249,
+          "status": "buy"
+        },
+        "7": {
+          "amount_spent": 0,
+          "amount_traded": 0,
+          "item_id": 0,
+          "status": "empty"
+        }
+      },
+      "ledger": {}
+    }
+  }
+}

@@ -1,0 +1,470 @@
+2026-02-02 11:34:44,027 | INFO | MainThread | --------------------------------------------------
+2026-02-02 11:34:44,028 | INFO | MainThread |    SWAGFLIP BRAIN — ONLINE
+2026-02-02 11:34:44,028 | INFO | MainThread |    POST /suggestion
+2026-02-02 11:34:44,028 | INFO | MainThread |    Dashboard: http://127.0.0.1:5000/
+2026-02-02 11:34:44,028 | INFO | MainThread |    DB (durable): swagflipV1.db
+2026-02-02 11:34:44,028 | INFO | MainThread |    Log file: swagflipV1.log
+2026-02-02 11:34:44,028 | INFO | MainThread |    Abort cooldown: 120s | Stuck buy abort: 1200s | Stale offer: 120s
+2026-02-02 11:34:44,028 | INFO | MainThread |    Profit tracking endpoints enabled: /profit-tracking/*
+2026-02-02 11:34:44,028 | INFO | MainThread |    Item prices endpoint enabled: /prices (GET/POST)
+2026-02-02 11:34:44,029 | INFO | MainThread | --------------------------------------------------
+2026-02-02 11:34:44,050 | INFO | MainThread | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-02-02 11:34:44,050 | INFO | MainThread | [33mPress CTRL+C to quit[0m
+2026-02-02 11:34:44,934 | INFO | Thread-1 (refresh_forever) | [GOODCSV] mapped 424 names -> item_ids (total ids=424)
+2026-02-02 11:34:44,935 | INFO | Thread-1 (refresh_forever) | [PRICES] mapping loaded: 4509 items
+2026-02-02 11:34:44,935 | INFO | Thread-1 (refresh_forever) | [PRICES] latest refreshed: 4388 items
+2026-02-02 11:34:44,935 | INFO | Thread-1 (refresh_forever) | [PRICES] volumes refreshed: 4118 items
+2026-02-02 11:34:46,289 | ERROR | Thread-2 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:34:46,292 | INFO | Thread-2 (process_request_thread) | e9b5eb96b1 POST /suggestion -> 200 (11ms)
+2026-02-02 11:34:46,292 | INFO | Thread-2 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:34:46] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:34:51,074 | ERROR | Thread-3 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:34:51,075 | INFO | Thread-3 (process_request_thread) | 8e6e9e0c98 POST /suggestion -> 200 (9ms)
+2026-02-02 11:34:51,076 | INFO | Thread-3 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:34:51] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:34:53,728 | ERROR | Thread-4 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:34:53,730 | INFO | Thread-4 (process_request_thread) | bd2ce2b053 POST /suggestion -> 200 (15ms)
+2026-02-02 11:34:53,731 | INFO | Thread-4 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:34:53] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:34:53,774 | INFO | Thread-5 (process_request_thread) | d271c7003b POST /profit-tracking/client-flips-delta -> 200 (0ms)
+2026-02-02 11:34:53,793 | INFO | Thread-5 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:34:53] "POST /profit-tracking/client-flips-delta HTTP/1.1" 200 -
+2026-02-02 11:35:10,146 | INFO | Thread-6 (process_request_thread) | 6be0f5076f GET /debug/logs -> 200 (28ms)
+2026-02-02 11:35:10,146 | INFO | Thread-6 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:35:10] "GET /debug/logs HTTP/1.1" 200 -
+2026-02-02 11:35:25,077 | INFO | Thread-8 (process_request_thread) | 39bd2aa7c7 GET /profit-tracking/rs-account-names -> 200 (138ms)
+2026-02-02 11:35:25,078 | INFO | Thread-8 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:35:25] "GET /profit-tracking/rs-account-names HTTP/1.1" 200 -
+2026-02-02 11:35:25,169 | INFO | Thread-9 (process_request_thread) | deee8363a3 POST /profit-tracking/client-flips-delta -> 200 (0ms)
+2026-02-02 11:35:25,169 | INFO | Thread-9 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:35:25] "POST /profit-tracking/client-flips-delta HTTP/1.1" 200 -
+2026-02-02 11:35:26,439 | INFO | Thread-10 (process_request_thread) | 5b18470309 POST /profit-tracking/client-flips-delta -> 200 (0ms)
+2026-02-02 11:35:26,439 | INFO | Thread-10 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:35:26] "POST /profit-tracking/client-flips-delta HTTP/1.1" 200 -
+2026-02-02 11:35:28,450 | INFO | Thread-11 (process_request_thread) | 672e5abf72 POST /profit-tracking/client-flips-delta -> 200 (0ms)
+2026-02-02 11:35:28,450 | INFO | Thread-11 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:35:28] "POST /profit-tracking/client-flips-delta HTTP/1.1" 200 -
+2026-02-02 11:35:35,471 | INFO | Thread-12 (process_request_thread) | b6be55daf2 POST /profit-tracking/client-flips-delta -> 200 (0ms)
+2026-02-02 11:35:35,472 | INFO | Thread-12 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:35:35] "POST /profit-tracking/client-flips-delta HTTP/1.1" 200 -
+2026-02-02 11:35:45,058 | INFO | Thread-1 (refresh_forever) | [PRICES] mapping loaded: 4509 items
+2026-02-02 11:35:45,058 | INFO | Thread-1 (refresh_forever) | [PRICES] latest refreshed: 4388 items
+2026-02-02 11:35:45,058 | INFO | Thread-1 (refresh_forever) | [PRICES] volumes refreshed: 4118 items
+2026-02-02 11:35:55,561 | INFO | Thread-13 (process_request_thread) | bf9dca7b82 POST /profit-tracking/client-flips-delta -> 200 (0ms)
+2026-02-02 11:35:55,562 | INFO | Thread-13 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:35:55] "POST /profit-tracking/client-flips-delta HTTP/1.1" 200 -
+2026-02-02 11:35:56,645 | ERROR | Thread-14 (process_request_thread) | [PROFIT] failed to ingest transaction
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 2600, in _pt_ingest_transactions
+    conn.execute(
+    ~~~~~~~~~~~~^
+        """INSERT INTO pt_transactions(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<16 lines>...
+        ),
+        ^^
+    )
+    ^
+sqlite3.IntegrityError: NOT NULL constraint failed: pt_transactions.was_copilot_suggestion
+2026-02-02 11:35:56,647 | INFO | Thread-14 (process_request_thread) | d607f3aef4 POST /profit-tracking/client-transactions -> 200 (12ms)
+2026-02-02 11:35:56,648 | INFO | Thread-14 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:35:56] "POST /profit-tracking/client-transactions?display_name=MrBankBoi HTTP/1.1" 200 -
+2026-02-02 11:36:03,810 | ERROR | Thread-15 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:36:03,811 | INFO | Thread-15 (process_request_thread) | 41712a8920 POST /suggestion -> 200 (12ms)
+2026-02-02 11:36:03,811 | INFO | Thread-15 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:36:03] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:36:13,939 | ERROR | Thread-16 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:36:13,942 | INFO | Thread-16 (process_request_thread) | c69e7d46ec POST /suggestion -> 200 (8ms)
+2026-02-02 11:36:13,942 | INFO | Thread-16 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:36:13] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:36:24,128 | ERROR | Thread-17 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:36:24,130 | INFO | Thread-17 (process_request_thread) | 78aa180f92 POST /suggestion -> 200 (7ms)
+2026-02-02 11:36:24,131 | INFO | Thread-17 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:36:24] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:36:34,341 | ERROR | Thread-18 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:36:34,343 | INFO | Thread-18 (process_request_thread) | a6aefa142c POST /suggestion -> 200 (10ms)
+2026-02-02 11:36:34,343 | INFO | Thread-18 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:36:34] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:36:40,576 | INFO | Thread-19 (process_request_thread) | f7a57941c4 POST /profit-tracking/client-flips-delta -> 200 (0ms)
+2026-02-02 11:36:40,576 | INFO | Thread-19 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:36:40] "POST /profit-tracking/client-flips-delta HTTP/1.1" 200 -
+2026-02-02 11:36:44,519 | ERROR | Thread-20 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:36:44,520 | INFO | Thread-20 (process_request_thread) | 11e57735e4 POST /suggestion -> 200 (7ms)
+2026-02-02 11:36:44,521 | INFO | Thread-20 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:36:44] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:36:45,198 | INFO | Thread-1 (refresh_forever) | [PRICES] mapping loaded: 4509 items
+2026-02-02 11:36:45,198 | INFO | Thread-1 (refresh_forever) | [PRICES] latest refreshed: 4388 items
+2026-02-02 11:36:45,198 | INFO | Thread-1 (refresh_forever) | [PRICES] volumes refreshed: 4118 items
+2026-02-02 11:36:54,736 | ERROR | Thread-21 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:36:54,738 | INFO | Thread-21 (process_request_thread) | f743c8d8c8 POST /suggestion -> 200 (22ms)
+2026-02-02 11:36:54,738 | INFO | Thread-21 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:36:54] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:37:05,236 | ERROR | Thread-22 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:37:05,237 | INFO | Thread-22 (process_request_thread) | 666a0ac596 POST /suggestion -> 200 (14ms)
+2026-02-02 11:37:05,238 | INFO | Thread-22 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:37:05] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:37:15,898 | ERROR | Thread-23 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:37:15,899 | INFO | Thread-23 (process_request_thread) | 5d9c375d75 POST /suggestion -> 200 (8ms)
+2026-02-02 11:37:15,899 | INFO | Thread-23 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:37:15] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:37:25,585 | INFO | Thread-24 (process_request_thread) | d2ed711c02 POST /profit-tracking/client-flips-delta -> 200 (0ms)
+2026-02-02 11:37:25,585 | INFO | Thread-24 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:37:25] "POST /profit-tracking/client-flips-delta HTTP/1.1" 200 -
+2026-02-02 11:37:26,050 | ERROR | Thread-25 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:37:26,052 | INFO | Thread-25 (process_request_thread) | 9e28b60bc3 POST /suggestion -> 200 (7ms)
+2026-02-02 11:37:26,052 | INFO | Thread-25 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:37:26] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:37:34,741 | INFO | Thread-26 (process_request_thread) | a405cb96f8 GET /debug/code_index -> 200 (84ms)
+2026-02-02 11:37:34,741 | INFO | Thread-26 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:37:34] "GET /debug/code_index HTTP/1.1" 200 -
+2026-02-02 11:37:37,690 | ERROR | Thread-28 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:37:37,691 | INFO | Thread-28 (process_request_thread) | 4c67a589d7 POST /suggestion -> 200 (15ms)
+2026-02-02 11:37:37,692 | INFO | Thread-28 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:37:37] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:37:45,331 | INFO | Thread-1 (refresh_forever) | [PRICES] mapping loaded: 4509 items
+2026-02-02 11:37:45,331 | INFO | Thread-1 (refresh_forever) | [PRICES] latest refreshed: 4388 items
+2026-02-02 11:37:45,331 | INFO | Thread-1 (refresh_forever) | [PRICES] volumes refreshed: 4118 items
+2026-02-02 11:37:48,169 | ERROR | Thread-29 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:37:48,171 | INFO | Thread-29 (process_request_thread) | 26c8fb9e26 POST /suggestion -> 200 (9ms)
+2026-02-02 11:37:48,171 | INFO | Thread-29 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:37:48] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:37:58,353 | ERROR | Thread-30 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:37:58,354 | INFO | Thread-30 (process_request_thread) | 2a71cffbf9 POST /suggestion -> 200 (10ms)
+2026-02-02 11:37:58,354 | INFO | Thread-30 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:37:58] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:38:08,538 | ERROR | Thread-31 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:38:08,540 | INFO | Thread-31 (process_request_thread) | 50ee7e11d1 POST /suggestion -> 200 (6ms)
+2026-02-02 11:38:08,540 | INFO | Thread-31 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:38:08] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:38:10,598 | INFO | Thread-32 (process_request_thread) | 5e3464706b POST /profit-tracking/client-flips-delta -> 200 (0ms)
+2026-02-02 11:38:10,598 | INFO | Thread-32 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:38:10] "POST /profit-tracking/client-flips-delta HTTP/1.1" 200 -
+2026-02-02 11:38:18,741 | ERROR | Thread-33 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:38:18,742 | INFO | Thread-33 (process_request_thread) | 7ae7338978 POST /suggestion -> 200 (11ms)
+2026-02-02 11:38:18,743 | INFO | Thread-33 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:38:18] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:38:29,015 | ERROR | Thread-34 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:38:29,017 | INFO | Thread-34 (process_request_thread) | 89e038ba54 POST /suggestion -> 200 (12ms)
+2026-02-02 11:38:29,017 | INFO | Thread-34 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:38:29] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:38:39,130 | ERROR | Thread-35 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:38:39,132 | INFO | Thread-35 (process_request_thread) | 3fa36fbe0a POST /suggestion -> 200 (7ms)
+2026-02-02 11:38:39,133 | INFO | Thread-35 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:38:39] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:38:45,493 | INFO | Thread-1 (refresh_forever) | [PRICES] mapping loaded: 4509 items
+2026-02-02 11:38:45,494 | INFO | Thread-1 (refresh_forever) | [PRICES] latest refreshed: 4388 items
+2026-02-02 11:38:45,494 | INFO | Thread-1 (refresh_forever) | [PRICES] volumes refreshed: 4118 items
+2026-02-02 11:38:49,345 | ERROR | Thread-36 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:38:49,346 | INFO | Thread-36 (process_request_thread) | e65497f583 POST /suggestion -> 200 (9ms)
+2026-02-02 11:38:49,347 | INFO | Thread-36 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:38:49] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:38:55,972 | INFO | Thread-37 (process_request_thread) | 68ce5c89c8 POST /profit-tracking/client-flips-delta -> 200 (0ms)
+2026-02-02 11:38:55,973 | INFO | Thread-37 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:38:55] "POST /profit-tracking/client-flips-delta HTTP/1.1" 200 -
+2026-02-02 11:39:02,990 | ERROR | Thread-38 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:39:02,991 | INFO | Thread-38 (process_request_thread) | 620e4006a7 POST /suggestion -> 200 (25ms)
+2026-02-02 11:39:02,992 | INFO | Thread-38 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:39:02] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:39:13,364 | ERROR | Thread-39 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:39:13,366 | INFO | Thread-39 (process_request_thread) | 3a23e0a23b POST /suggestion -> 200 (9ms)
+2026-02-02 11:39:13,366 | INFO | Thread-39 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:39:13] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:39:25,303 | ERROR | Thread-40 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:39:25,320 | INFO | Thread-40 (process_request_thread) | 21445d3d14 POST /suggestion -> 200 (24ms)
+2026-02-02 11:39:25,343 | INFO | Thread-40 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:39:25] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:39:35,536 | ERROR | Thread-41 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:39:35,538 | INFO | Thread-41 (process_request_thread) | 82b4bea0d1 POST /suggestion -> 200 (10ms)
+2026-02-02 11:39:35,539 | INFO | Thread-41 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:39:35] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:39:40,981 | INFO | Thread-42 (process_request_thread) | 68e3d89ff3 POST /profit-tracking/client-flips-delta -> 200 (0ms)
+2026-02-02 11:39:40,982 | INFO | Thread-42 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:39:40] "POST /profit-tracking/client-flips-delta HTTP/1.1" 200 -
+2026-02-02 11:39:45,729 | INFO | Thread-1 (refresh_forever) | [PRICES] mapping loaded: 4509 items
+2026-02-02 11:39:45,729 | INFO | Thread-1 (refresh_forever) | [PRICES] latest refreshed: 4388 items
+2026-02-02 11:39:45,729 | INFO | Thread-1 (refresh_forever) | [PRICES] volumes refreshed: 4118 items
+2026-02-02 11:39:45,742 | ERROR | Thread-43 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:39:45,744 | INFO | Thread-43 (process_request_thread) | 23ee40a773 POST /suggestion -> 200 (6ms)
+2026-02-02 11:39:45,745 | INFO | Thread-43 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:39:45] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:39:56,292 | ERROR | Thread-44 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:39:56,293 | INFO | Thread-44 (process_request_thread) | 4eda7b8843 POST /suggestion -> 200 (12ms)
+2026-02-02 11:39:56,294 | INFO | Thread-44 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:39:56] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:40:06,825 | ERROR | Thread-45 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:40:06,827 | INFO | Thread-45 (process_request_thread) | d3c79207ea POST /suggestion -> 200 (7ms)
+2026-02-02 11:40:06,827 | INFO | Thread-45 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:40:06] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:40:16,991 | ERROR | Thread-46 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:40:16,992 | INFO | Thread-46 (process_request_thread) | 8d53198624 POST /suggestion -> 200 (7ms)
+2026-02-02 11:40:16,992 | INFO | Thread-46 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:40:16] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:40:25,990 | INFO | Thread-47 (process_request_thread) | bba4cbf57c POST /profit-tracking/client-flips-delta -> 200 (0ms)
+2026-02-02 11:40:25,990 | INFO | Thread-47 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:40:25] "POST /profit-tracking/client-flips-delta HTTP/1.1" 200 -
+2026-02-02 11:40:27,153 | ERROR | Thread-48 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:40:27,157 | INFO | Thread-48 (process_request_thread) | ba5d47064e POST /suggestion -> 200 (12ms)
+2026-02-02 11:40:27,157 | INFO | Thread-48 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:40:27] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:40:39,629 | ERROR | Thread-49 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:40:39,631 | INFO | Thread-49 (process_request_thread) | 71fc35f7f6 POST /suggestion -> 200 (230ms)
+2026-02-02 11:40:39,660 | INFO | Thread-49 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:40:39] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:40:46,190 | INFO | Thread-1 (refresh_forever) | [PRICES] mapping loaded: 4509 items
+2026-02-02 11:40:46,190 | INFO | Thread-1 (refresh_forever) | [PRICES] latest refreshed: 4388 items
+2026-02-02 11:40:46,190 | INFO | Thread-1 (refresh_forever) | [PRICES] volumes refreshed: 4118 items
+2026-02-02 11:40:51,757 | ERROR | Thread-50 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:40:51,758 | INFO | Thread-50 (process_request_thread) | fcfb31b05b POST /suggestion -> 200 (16ms)
+2026-02-02 11:40:51,758 | INFO | Thread-50 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:40:51] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:41:02,023 | ERROR | Thread-51 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:41:02,027 | INFO | Thread-51 (process_request_thread) | ac3628f5f2 POST /suggestion -> 200 (10ms)
+2026-02-02 11:41:02,028 | INFO | Thread-51 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:41:02] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:41:11,118 | INFO | Thread-52 (process_request_thread) | b094eda5be POST /profit-tracking/client-flips-delta -> 200 (0ms)
+2026-02-02 11:41:11,118 | INFO | Thread-52 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:41:11] "POST /profit-tracking/client-flips-delta HTTP/1.1" 200 -
+2026-02-02 11:41:12,434 | ERROR | Thread-53 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:41:12,435 | INFO | Thread-53 (process_request_thread) | d1b8c68fda POST /suggestion -> 200 (11ms)
+2026-02-02 11:41:12,435 | INFO | Thread-53 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:41:12] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:41:22,950 | ERROR | Thread-54 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:41:22,953 | INFO | Thread-54 (process_request_thread) | 92f7763c7c POST /suggestion -> 200 (9ms)
+2026-02-02 11:41:22,953 | INFO | Thread-54 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:41:22] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:41:33,165 | ERROR | Thread-55 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:41:33,166 | INFO | Thread-55 (process_request_thread) | d5981e8ce0 POST /suggestion -> 200 (13ms)
+2026-02-02 11:41:33,166 | INFO | Thread-55 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:41:33] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:41:43,359 | ERROR | Thread-56 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:41:43,361 | INFO | Thread-56 (process_request_thread) | 115c1182d0 POST /suggestion -> 200 (10ms)
+2026-02-02 11:41:43,361 | INFO | Thread-56 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:41:43] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:41:46,634 | INFO | Thread-1 (refresh_forever) | [PRICES] mapping loaded: 4509 items
+2026-02-02 11:41:46,634 | INFO | Thread-1 (refresh_forever) | [PRICES] latest refreshed: 4388 items
+2026-02-02 11:41:46,634 | INFO | Thread-1 (refresh_forever) | [PRICES] volumes refreshed: 4118 items
+2026-02-02 11:41:53,573 | ERROR | Thread-57 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:41:53,574 | INFO | Thread-57 (process_request_thread) | f4328142c9 POST /suggestion -> 200 (10ms)
+2026-02-02 11:41:53,574 | INFO | Thread-57 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:41:53] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:41:56,130 | INFO | Thread-58 (process_request_thread) | aeaeb4ca7f POST /profit-tracking/client-flips-delta -> 200 (0ms)
+2026-02-02 11:41:56,130 | INFO | Thread-58 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:41:56] "POST /profit-tracking/client-flips-delta HTTP/1.1" 200 -
+2026-02-02 11:42:03,743 | ERROR | Thread-59 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:42:03,744 | INFO | Thread-59 (process_request_thread) | 547611baa9 POST /suggestion -> 200 (7ms)
+2026-02-02 11:42:03,744 | INFO | Thread-59 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:42:03] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:42:14,049 | ERROR | Thread-60 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:42:14,050 | INFO | Thread-60 (process_request_thread) | 8de35e5092 POST /suggestion -> 200 (6ms)
+2026-02-02 11:42:14,051 | INFO | Thread-60 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:42:14] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:42:24,151 | ERROR | Thread-61 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:42:24,153 | INFO | Thread-61 (process_request_thread) | 383837b550 POST /suggestion -> 200 (8ms)
+2026-02-02 11:42:24,154 | INFO | Thread-61 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:42:24] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:42:34,429 | ERROR | Thread-62 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:42:34,431 | INFO | Thread-62 (process_request_thread) | afa81ff90b POST /suggestion -> 200 (12ms)
+2026-02-02 11:42:34,431 | INFO | Thread-62 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:42:34] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:42:41,136 | INFO | Thread-63 (process_request_thread) | b3518eb7ab POST /profit-tracking/client-flips-delta -> 200 (0ms)
+2026-02-02 11:42:41,137 | INFO | Thread-63 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:42:41] "POST /profit-tracking/client-flips-delta HTTP/1.1" 200 -
+2026-02-02 11:42:44,565 | ERROR | Thread-64 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:42:44,566 | INFO | Thread-64 (process_request_thread) | 89d858854d POST /suggestion -> 200 (7ms)
+2026-02-02 11:42:44,566 | INFO | Thread-64 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:42:44] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:42:46,773 | INFO | Thread-1 (refresh_forever) | [PRICES] mapping loaded: 4509 items
+2026-02-02 11:42:46,774 | INFO | Thread-1 (refresh_forever) | [PRICES] latest refreshed: 4388 items
+2026-02-02 11:42:46,774 | INFO | Thread-1 (refresh_forever) | [PRICES] volumes refreshed: 4118 items
+2026-02-02 11:42:54,753 | ERROR | Thread-65 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:42:54,754 | INFO | Thread-65 (process_request_thread) | 47b0410d92 POST /suggestion -> 200 (7ms)
+2026-02-02 11:42:54,755 | INFO | Thread-65 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:42:54] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:43:04,951 | ERROR | Thread-66 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:43:04,953 | INFO | Thread-66 (process_request_thread) | 3813d93e9b POST /suggestion -> 200 (13ms)
+2026-02-02 11:43:04,955 | INFO | Thread-66 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:43:04] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:43:15,187 | ERROR | Thread-67 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:43:15,188 | INFO | Thread-67 (process_request_thread) | d68a35f312 POST /suggestion -> 200 (9ms)
+2026-02-02 11:43:15,189 | INFO | Thread-67 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:43:15] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:43:25,357 | ERROR | Thread-68 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:43:25,359 | INFO | Thread-68 (process_request_thread) | 3017e47798 POST /suggestion -> 200 (8ms)
+2026-02-02 11:43:25,359 | INFO | Thread-68 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:43:25] "POST /suggestion HTTP/1.1" 200 -
+2026-02-02 11:43:26,153 | INFO | Thread-69 (process_request_thread) | 2c0673cefb POST /profit-tracking/client-flips-delta -> 200 (0ms)
+2026-02-02 11:43:26,153 | INFO | Thread-69 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:43:26] "POST /profit-tracking/client-flips-delta HTTP/1.1" 200 -
+2026-02-02 11:43:36,250 | ERROR | Thread-70 (process_request_thread) | [SUGGESTION] fatal error
+Traceback (most recent call last):
+  File "C:\Users\marsh\OneDrive\Desktop\SWAGFLIP\server_swagflip_relaxed_learning_fixed_v13.py", line 3623, in suggestion
+    conn = get_db()
+           ^^^^^^
+NameError: name 'get_db' is not defined
+2026-02-02 11:43:36,251 | INFO | Thread-70 (process_request_thread) | 5d1a013dc8 POST /suggestion -> 200 (20ms)
+2026-02-02 11:43:36,251 | INFO | Thread-70 (process_request_thread) | 127.0.0.1 - - [02/Feb/2026 11:43:36] "POST /suggestion HTTP/1.1" 200 -

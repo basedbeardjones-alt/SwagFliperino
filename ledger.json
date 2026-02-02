@@ -1,0 +1,36 @@
+{
+  "buy_queue": [
+    {
+      "type": "buy",
+      "rec_id": "a79c057e7eb84ffa9a85584c175769a6",
+      "issued_unix": 1770000048,
+      "box_id": 4,
+      "item_id": 1521,
+      "price": 22,
+      "quantity": 5738,
+      "name": "Oak logs",
+      "command_id": 1,
+      "message": "Buy 5738 Oak logs @ 22",
+      "expectedProfit": 5738.0,
+      "expectedDuration": 1.0723914035500304,
+      "note": ""
+    }
+  ],
+  "action_queue": [
+    {
+      "type": "sell",
+      "rec_id": "cc658901113b4fe78064d896c99519ca",
+      "issued_unix": 1770000892,
+      "box_id": 0,
+      "item_id": 11229,
+      "price": 4226,
+      "quantity": 36,
+      "name": "Dragon arrow(p++)",
+      "command_id": 2,
+      "message": "Sell 36 Dragon arrow(p++) @ 4226 \u2014 stale>300s relist after abort",
+      "expectedProfit": 36.0,
+      "expectedDuration": 0.3172524372257547,
+      "note": "stale>300s relist after abort"
+    }
+  ]
+}
