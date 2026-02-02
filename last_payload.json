@@ -1,0 +1,141 @@
+{
+  "display_name": "DaityasPls",
+  "sell_only": false,
+  "f2p_only": false,
+  "is_member": true,
+  "is_account_member": true,
+  "skip_suggestion": -1,
+  "send_graph_data": true,
+  "timeframe": 30,
+  "risk_level": "high",
+  "suggestions_paused": false,
+  "offers": [
+    {
+      "status": "sell",
+      "item_id": 32380,
+      "price": 52920,
+      "amount_total": 1,
+      "amount_spent": 0,
+      "amount_traded": 0,
+      "items_to_collect": 0,
+      "gp_to_collect": 0,
+      "box_id": 0,
+      "active": true,
+      "copilot_price_used": false
+    },
+    {
+      "status": "sell",
+      "item_id": 4708,
+      "price": 400471,
+      "amount_total": 2,
+      "amount_spent": 800942,
+      "amount_traded": 2,
+      "items_to_collect": 0,
+      "gp_to_collect": 0,
+      "box_id": 1,
+      "active": false,
+      "copilot_price_used": false
+    },
+    {
+      "status": "sell",
+      "item_id": 32059,
+      "price": 8915,
+      "amount_total": 100,
+      "amount_spent": 891500,
+      "amount_traded": 100,
+      "items_to_collect": 0,
+      "gp_to_collect": 0,
+      "box_id": 2,
+      "active": false,
+      "copilot_price_used": false
+    },
+    {
+      "status": "empty",
+      "item_id": 0,
+      "price": 0,
+      "amount_total": 0,
+      "amount_spent": 0,
+      "amount_traded": 0,
+      "items_to_collect": 0,
+      "gp_to_collect": 0,
+      "box_id": 3,
+      "active": false,
+      "copilot_price_used": false
+    },
+    {
+      "status": "buy",
+      "item_id": 27670,
+      "price": 77219,
+      "amount_total": 16,
+      "amount_spent": 386095,
+      "amount_traded": 5,
+      "items_to_collect": 0,
+      "gp_to_collect": 0,
+      "box_id": 4,
+      "active": true,
+      "copilot_price_used": false
+    },
+    {
+      "status": "buy",
+      "item_id": 12631,
+      "price": 1344,
+      "amount_total": 3920,
+      "amount_spent": 9408,
+      "amount_traded": 7,
+      "items_to_collect": 0,
+      "gp_to_collect": 0,
+      "box_id": 5,
+      "active": true,
+      "copilot_price_used": false
+    },
+    {
+      "status": "buy",
+      "item_id": 23249,
+      "price": 724264,
+      "amount_total": 7,
+      "amount_spent": 4345584,
+      "amount_traded": 6,
+      "items_to_collect": 0,
+      "gp_to_collect": 0,
+      "box_id": 6,
+      "active": true,
+      "copilot_price_used": false
+    },
+    {
+      "status": "empty",
+      "item_id": 0,
+      "price": 0,
+      "amount_total": 0,
+      "amount_spent": 0,
+      "amount_traded": 0,
+      "items_to_collect": 0,
+      "gp_to_collect": 0,
+      "box_id": 7,
+      "active": false,
+      "copilot_price_used": false
+    }
+  ],
+  "items": [
+    {
+      "item_id": 562,
+      "amount": 4629
+    },
+    {
+      "item_id": 995,
+      "amount": 7654133
+    },
+    {
+      "item_id": 30771,
+      "amount": 2151
+    },
+    {
+      "item_id": 27670,
+      "amount": 3
+    },
+    {
+      "item_id": 12631,
+      "amount": 7
+    }
+  ],
+  "blocked_items": []
+}

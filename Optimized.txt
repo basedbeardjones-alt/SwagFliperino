@@ -1,0 +1,660 @@
+Optimized BS
+
+
+import os
+import time
+import math
+import json
+import threading
+from dataclasses import dataclass
+from typing import Dict, Any, Optional, List, Set, Tuple
+
+import requests
+from flask import Flask, request, jsonify, Response
+
+# -------------------- Config --------------------
+HOST = os.getenv("SWAGFLIP_BIND_HOST", "127.0.0.1")  # use "0.0.0.0" for LAN/public
+PORT = int(os.getenv("SWAGFLIP_PORT", "5000"))
+
+PRICES_BASE = "https://prices.runescape.wiki/api/v1/osrs"
+USER_AGENT = os.getenv("SWAGFLIP_USER_AGENT", "SwagFlipBrain/final")
+REFRESH_SECONDS = int(os.getenv("SWAGFLIP_REFRESH_SECONDS", "60"))
+
+DEBUG_REJECTIONS = os.getenv("SWAGFLIP_DEBUG_REJECTIONS", "true").lower() == "true"
+
+# Trading Constraints - ACTIVE FLIPPER
+MAX_CASH_FRACTION = float(os.getenv("SWAGFLIP_MAX_CASH_FRACTION", "0.90"))
+BUY_BUDGET_CAP = int(os.getenv("SWAGFLIP_BUY_BUDGET_CAP", "10000000"))  # 10M
+TARGET_FILL_MINUTES = float(os.getenv("SWAGFLIP_TARGET_FILL_MINUTES", "5.0"))
+
+MIN_BUY_PRICE = int(os.getenv("SWAGFLIP_MIN_BUY_PRICE", "1"))
+MIN_MARGIN_GP = int(os.getenv("SWAGFLIP_MIN_MARGIN_GP", "1"))
+
+# ✅ As requested: 0.05% minimum ROI
+MIN_ROI = float(os.getenv("SWAGFLIP_MIN_ROI", "0.0005"))
+MAX_ROI = float(os.getenv("SWAGFLIP_MAX_ROI", "0.40"))
+
+# ✅ Daily volume bounds (10k..1b)
+MIN_DAILY_VOLUME = int(os.getenv("SWAGFLIP_MIN_DAILY_VOLUME", "10000"))
+MAX_DAILY_VOLUME = int(os.getenv("SWAGFLIP_MAX_DAILY_VOLUME", "1000000000"))
+
+# Seller tax: 2%, no tax under 100 gp (your belief)
+SELLER_TAX_RATE = float(os.getenv("SWAGFLIP_SELLER_TAX_RATE", "0.02"))
+NO_TAX_THRESHOLD = int(os.getenv("SWAGFLIP_NO_TAX_THRESHOLD", "100"))
+
+# Ledger + persistent queue
+LEDGER_PATH = os.getenv("SWAGFLIP_LEDGER_PATH", "ledger.json")
+
+# Optional dashboard token (set it if you expose publicly)
+DASH_TOKEN = os.getenv("SWAGFLIP_DASH_TOKEN", "").strip()
+
+# -------------------- Flask + HTTP session --------------------
+app = Flask(__name__)
+session = requests.Session()
+session.headers.update({"User-Agent": USER_AGENT})
+
+# -------------------- Models --------------------
+@dataclass
+class ItemMeta:
+    name: str
+    limit: Optional[int]
+
+class PriceCache:
+    def __init__(self):
+        self._lock = threading.Lock()
+        self.mapping: Dict[int, ItemMeta] = {}
+        self.latest: Dict[int, Dict[str, Any]] = {}
+        self.volumes: Dict[int, int] = {}  # ✅ daily volumes by item id
+        self.last_refresh: float = 0.0
+
+    def refresh_forever(self):
+        while True:
+            try:
+                if not self.mapping:
+                    self._fetch_mapping()
+                self._fetch_latest()
+                self._fetch_volumes()
+                with self._lock:
+                    self.last_refresh = time.time()
+            except Exception as e:
+                print(f"[PRICES] refresh error: {e}")
+            time.sleep(REFRESH_SECONDS)
+
+    def _fetch_mapping(self):
+        r = session.get(f"{PRICES_BASE}/mapping", timeout=15)
+        r.raise_for_status()
+        payload = r.json()
+
+        # mapping sometimes comes back as a list
+        if isinstance(payload, dict):
+            items = payload.get("data", []) or []
+        elif isinstance(payload, list):
+            items = payload
+        else:
+            items = []
+
+        m: Dict[int, ItemMeta] = {}
+        for it in items:
+            try:
+                iid = int(it.get("id"))
+                name = it.get("name") or str(iid)
+                limit = it.get("limit")
+                m[iid] = ItemMeta(
+                    name=name,
+                    limit=int(limit) if limit is not None else None,
+                )
+            except Exception:
+                continue
+
+        with self._lock:
+            self.mapping = m
+        print(f"[PRICES] mapping loaded: {len(m)} items")
+
+    def _fetch_latest(self):
+        r = session.get(f"{PRICES_BASE}/latest", timeout=15)
+        r.raise_for_status()
+        data = r.json().get("data", {}) or {}
+        latest = {int(k): v for k, v in data.items() if str(k).isdigit()}
+        with self._lock:
+            self.latest = latest
+        print(f"[PRICES] latest refreshed: {len(latest)} items")
+
+    def _fetch_volumes(self):
+        """
+        ✅ This is the key fix.
+        /volumes returns per-item volumes keyed by item ID.
+        """
+        r = session.get(f"{PRICES_BASE}/volumes", timeout=15)
+        r.raise_for_status()
+        data = r.json().get("data", {}) or {}
+
+        # data often looks like {"2": 12345, "4151": 6789, ...}
+        vols: Dict[int, int] = {}
+        for k, v in data.items():
+            try:
+                iid = int(k)
+                vols[iid] = int(v)
+            except Exception:
+                continue
+
+        with self._lock:
+            self.volumes = vols
+        print(f"[PRICES] volumes refreshed: {len(vols)} items")
+
+    def snapshot(self):
+        with self._lock:
+            return dict(self.mapping), dict(self.latest), dict(self.volumes), self.last_refresh
+
+prices = PriceCache()
+
+# -------------------- Ledger (disk) --------------------
+def load_ledger() -> Dict[str, Any]:
+    if not os.path.exists(LEDGER_PATH):
+        return {
+            "positions": {},
+            "trades": [],
+            "summary": {"realized_profit": 0, "realized_cost": 0},
+            "buy_queue": []
+        }
+    try:
+        with open(LEDGER_PATH, "r", encoding="utf-8") as f:
+            led = json.load(f)
+        led.setdefault("positions", {})
+        led.setdefault("trades", [])
+        led.setdefault("summary", {"realized_profit": 0, "realized_cost": 0})
+        led.setdefault("buy_queue", [])
+        return led
+    except Exception:
+        return {
+            "positions": {},
+            "trades": [],
+            "summary": {"realized_profit": 0, "realized_cost": 0},
+            "buy_queue": []
+        }
+
+def save_ledger(ledger: Dict[str, Any]) -> None:
+    tmp = LEDGER_PATH + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(ledger, f, indent=2)
+    os.replace(tmp, LEDGER_PATH)
+
+def open_position(ledger: Dict[str, Any], item_id: int, qty: int, buy_price: int, name: str):
+    ledger["positions"][str(item_id)] = {
+        "item_id": item_id,
+        "name": name,
+        "qty": qty,
+        "avg_buy": buy_price,
+        "opened_unix": int(time.time())
+    }
+
+def close_position_from_sell_offer(ledger: Dict[str, Any], item_id: int, qty: int, sell_price: int):
+    pos = ledger["positions"].get(str(item_id))
+    if not pos:
+        return
+    avg_buy = int(pos.get("avg_buy", 0))
+    cost = avg_buy * qty
+    profit_per = sell_price - avg_buy - seller_tax(sell_price)
+    profit = profit_per * qty
+
+    ledger["trades"].append({
+        "item_id": item_id,
+        "name": pos.get("name", str(item_id)),
+        "qty": qty,
+        "avg_buy": avg_buy,
+        "sell_price": sell_price,
+        "profit": profit,
+        "roi": (profit / cost) if cost > 0 else 0.0,
+        "closed_unix": int(time.time())
+    })
+
+    ledger["summary"]["realized_profit"] = int(ledger["summary"].get("realized_profit", 0)) + int(profit)
+    ledger["summary"]["realized_cost"] = int(ledger["summary"].get("realized_cost", 0)) + int(cost)
+
+    try:
+        del ledger["positions"][str(item_id)]
+    except Exception:
+        pass
+
+# -------------------- Helpers --------------------
+def seller_tax(price: int) -> int:
+    if price < NO_TAX_THRESHOLD:
+        return 0
+    return int(math.floor(price * SELLER_TAX_RATE))
+
+def offer_is_empty(o: Dict[str, Any]) -> bool:
+    return str(o.get("status", "")).lower() == "empty"
+
+def offer_is_done(o: Dict[str, Any]) -> bool:
+    return (str(o.get("status", "")).lower() != "empty") and (not bool(o.get("active", False)))
+
+def first_empty_slot_id(offers: List[Dict[str, Any]]) -> Optional[int]:
+    for o in offers:
+        if offer_is_empty(o):
+            try:
+                return int(o.get("box_id", 0))
+            except Exception:
+                return 0
+    return None
+
+def active_offer_item_ids(offers: List[Dict[str, Any]]) -> Set[int]:
+    s: Set[int] = set()
+    for o in offers:
+        if bool(o.get("active", False)):
+            try:
+                iid = int(o.get("item_id", 0))
+                if iid > 0:
+                    s.add(iid)
+            except Exception:
+                pass
+    return s
+
+def gp_on_market(offers: List[Dict[str, Any]]) -> int:
+    total = 0
+    for o in offers:
+        try:
+            status = str(o.get("status", "")).lower()
+            price = int(o.get("price", 0))
+            amount_total = int(o.get("amount_total", 0))
+            amount_traded = int(o.get("amount_traded", 0))
+            gp_to_collect = int(o.get("gp_to_collect", 0))
+
+            if status == "buy":
+                total += amount_total * price
+            elif status == "sell":
+                remaining = max(amount_total - amount_traded, 0)
+                total += remaining * price + gp_to_collect
+        except Exception:
+            continue
+    return total
+
+def estimate_minutes_from_daily(qty: int, daily_vol: Optional[int]) -> float:
+    if daily_vol is None or daily_vol <= 0:
+        return 999999.0
+    per_min = max(daily_vol / 1440.0, 1e-6)
+    return qty / per_min
+
+# Suggestion builders (match plugin fields)
+def build_wait(msg: str, command_id: int = 0) -> Dict[str, Any]:
+    return {
+        "type": "wait",
+        "box_id": 0,
+        "item_id": -1,
+        "price": 0,
+        "quantity": 0,
+        "name": "",
+        "command_id": command_id,
+        "message": msg,
+        "expectedProfit": 0.0,
+        "expectedDuration": 0.0,
+    }
+
+def build_buy(box_id: int, item_id: int, name: str, price: int, qty: int, exp_profit: float, exp_min: float) -> Dict[str, Any]:
+    return {
+        "type": "buy",
+        "box_id": int(box_id),
+        "item_id": int(item_id),
+        "price": int(price),
+        "quantity": int(qty),
+        "name": name,
+        "command_id": 1,
+        "message": f"Buy {qty} {name} @ {price}",
+        "expectedProfit": float(exp_profit),
+        "expectedDuration": float(exp_min),
+    }
+
+def build_sell(box_id: int, item_id: int, name: str, price: int, qty: int, exp_profit: float, exp_min: float) -> Dict[str, Any]:
+    return {
+        "type": "sell",
+        "box_id": int(box_id),
+        "item_id": int(item_id),
+        "price": int(price),
+        "quantity": int(qty),
+        "name": name,
+        "command_id": 2,
+        "message": f"Sell {qty} {name} @ {price}",
+        "expectedProfit": float(exp_profit),
+        "expectedDuration": float(exp_min),
+    }
+
+# -------------------- Profit-tracking endpoints (stop 404 spam) --------------------
+def empty_binary_payload() -> bytes:
+    return b"\x00" * 12
+
+@app.get("/profit-tracking/rs-account-names")
+def rs_account_names():
+    return jsonify([]), 200
+
+@app.route("/profit-tracking/client-transactions", methods=["GET", "POST"])
+def client_transactions():
+    return Response(empty_binary_payload(), status=200, content_type="application/x-bytes")
+
+@app.route("/profit-tracking/account-client-transactions", methods=["GET", "POST"])
+def account_client_transactions():
+    return Response(empty_binary_payload(), status=200, content_type="application/x-bytes")
+
+# -------------------- Debug / Dashboard --------------------
+@app.get("/health")
+def health():
+    _, _, _, refreshed = prices.snapshot()
+    return jsonify({"ok": True, "last_price_refresh_unix": refreshed}), 200
+
+@app.get("/ledger")
+def ledger_view():
+    return jsonify(load_ledger()), 200
+
+@app.get("/ledger/summary")
+def ledger_summary():
+    led = load_ledger()
+    realized_profit = int(led.get("summary", {}).get("realized_profit", 0))
+    realized_cost = int(led.get("summary", {}).get("realized_cost", 0))
+    roi = (realized_profit / realized_cost) if realized_cost > 0 else 0.0
+    return jsonify({
+        "realized_profit": realized_profit,
+        "realized_cost": realized_cost,
+        "realized_roi": roi,
+        "open_positions": len((led.get("positions") or {}).keys()),
+        "queued_buys": len(led.get("buy_queue") or [])
+    }), 200
+
+@app.get("/dashboard")
+def dashboard():
+    if DASH_TOKEN:
+        token = request.args.get("token", "")
+        if token != DASH_TOKEN:
+            return "Forbidden", 403
+
+    led = load_ledger()
+    trades = list(led.get("trades", []))
+    trades.sort(key=lambda x: x.get("closed_unix", 0), reverse=True)
+    summary = led.get("summary", {})
+    positions = led.get("positions", {})
+
+    rp = int(summary.get("realized_profit", 0))
+    rc = int(summary.get("realized_cost", 0))
+    rroi = (rp / rc) if rc > 0 else 0.0
+
+    rows = ""
+    for t in trades[:50]:
+        rows += (
+            "<tr>"
+            f"<td>{t.get('name','')}</td>"
+            f"<td>{t.get('qty',0)}</td>"
+            f"<td>{t.get('avg_buy',0)}</td>"
+            f"<td>{t.get('sell_price',0)}</td>"
+            f"<td>{t.get('profit',0):,}</td>"
+            f"<td>{float(t.get('roi',0))*100:.2f}%</td>"
+            f"<td>{t.get('closed_unix',0)}</td>"
+            "</tr>"
+        )
+
+    html = f"""
+    <html>
+    <head>
+      <title>SwagFlip Dashboard</title>
+      <style>
+        body {{ font-family: sans-serif; padding: 24px; background: #111; color: #eee; }}
+        .k {{ display:inline-block; min-width: 220px; }}
+        table {{ border-collapse: collapse; width: 100%; margin-top: 16px; }}
+        th, td {{ border: 1px solid #333; padding: 8px; text-align: left; }}
+        th {{ background: #222; }}
+        tr:nth-child(even) {{ background: #1a1a1a; }}
+      </style>
+    </head>
+    <body>
+      <h1>SwagFlip Profit Dashboard</h1>
+      <div><span class="k"><b>Realized Profit:</b></span> {rp:,} gp</div>
+      <div><span class="k"><b>Realized Cost:</b></span> {rc:,} gp</div>
+      <div><span class="k"><b>Realized ROI:</b></span> {rroi*100:.2f}%</div>
+      <div><span class="k"><b>Open Positions:</b></span> {len(positions)}</div>
+
+      <h2>Recent Trades</h2>
+      <table>
+        <tr>
+          <th>Item</th><th>Qty</th><th>Buy</th><th>Sell</th><th>Profit</th><th>ROI</th><th>Closed</th>
+        </tr>
+        {rows}
+      </table>
+    </body>
+    </html>
+    """
+    return html, 200
+
+# -------------------- Main suggestion endpoint --------------------
+@app.post("/suggestion")
+def suggestion():
+    status = request.get_json(silent=True) or {}
+    offers: List[Dict[str, Any]] = status.get("offers") or []
+    items: List[Dict[str, Any]] = status.get("items") or []
+
+    mapping, latest, volumes, _ = prices.snapshot()
+
+    coins = 0
+    inv: List[Tuple[int, int]] = []
+    for it in items:
+        try:
+            iid = int(it.get("item_id", 0))
+            amt = int(it.get("amount", 0))
+            if iid == 995:
+                coins += amt
+            elif iid > 0 and amt > 0:
+                inv.append((iid, amt))
+        except Exception:
+            continue
+
+    blocked: Set[int] = set()
+    try:
+        for b in (status.get("blocked_items") or []):
+            blocked.add(int(b))
+    except Exception:
+        pass
+
+    skip_id = status.get("skip_suggestion", -1)
+    try:
+        skip_id = int(skip_id)
+    except Exception:
+        skip_id = -1
+    if skip_id and skip_id != -1:
+        blocked.add(skip_id)
+
+    active_ids = active_offer_item_ids(offers)
+    empty_slots = [o for o in offers if offer_is_empty(o)]
+    done_exists = any(offer_is_done(o) for o in offers)
+
+    empty_slot_id = first_empty_slot_id(offers)
+    slots_open = len(empty_slots)
+
+    gp_market = gp_on_market(offers)
+
+    led = load_ledger()
+    try:
+        for o in offers:
+            if offer_is_done(o) and str(o.get("status", "")).lower() == "sell":
+                iid = int(o.get("item_id", 0))
+                qty = int(o.get("amount_total", 0))
+                price = int(o.get("price", 0))
+                if iid > 0 and qty > 0 and str(iid) in (led.get("positions") or {}):
+                    close_position_from_sell_offer(led, iid, qty, price)
+    except Exception:
+        pass
+    save_ledger(led)
+
+    if slots_open <= 0 and done_exists:
+        msg = "COLLECT completed offers to free a GE slot"
+        print(f"[STATUS] coins={coins} gp_on_market={gp_market} open_slots={slots_open} => {msg}")
+        return jsonify(build_wait(msg)), 200
+
+    if slots_open > 0 and led.get("buy_queue"):
+        if skip_id and skip_id != -1:
+            led["buy_queue"] = [q for q in led["buy_queue"] if int(q.get("item_id", -1)) != skip_id]
+            save_ledger(led)
+
+        if led["buy_queue"]:
+            q = led["buy_queue"].pop(0)
+            save_ledger(led)
+            q["box_id"] = int(empty_slot_id or 0)
+            print(f"[SUGGESTION] BUY (queued) item_id={q.get('item_id')} qty={q.get('quantity')} price={q.get('price')}")
+            return jsonify(q), 200
+
+    # Sell inventory items
+    if slots_open > 0 and empty_slot_id is not None:
+        for iid, amt in inv:
+            if iid in blocked or iid in active_ids:
+                continue
+            if iid not in latest or iid not in mapping:
+                continue
+
+            lp = latest.get(iid) or {}
+            high = int(lp.get("high", 0))
+            if high <= 0:
+                continue
+
+            name = mapping[iid].name
+            sell_price = max(high - 1, 1)
+            mins = estimate_minutes_from_daily(amt, volumes.get(iid))
+
+            exp_profit = 0.0
+            if str(iid) in (led.get("positions") or {}):
+                avg_buy = int(led["positions"][str(iid)].get("avg_buy", 0))
+                profit_per = sell_price - avg_buy - seller_tax(sell_price)
+                exp_profit = float(profit_per * amt)
+
+            print(f"[SUGGESTION] SELL item_id={iid} qty={amt} price={sell_price} est_min={mins:.2f}")
+            return jsonify(build_sell(int(empty_slot_id), iid, name, sell_price, amt, exp_profit, mins)), 200
+
+    # Buy
+    sell_only = bool(status.get("sell_only", False))
+    if slots_open > 0 and (not sell_only) and empty_slot_id is not None:
+        budget_total = min(int(coins * MAX_CASH_FRACTION), BUY_BUDGET_CAP)
+        if budget_total <= 0:
+            return jsonify(build_wait("Wait (no cash)")), 200
+
+        per_slot_budget = max(int(budget_total / max(slots_open, 1)), 1)
+
+        reject_counts: Dict[str, int] = {}
+        def rej(reason: str):
+            if DEBUG_REJECTIONS:
+                reject_counts[reason] = reject_counts.get(reason, 0) + 1
+
+        candidates: List[Dict[str, Any]] = []
+        for item_id, lp in latest.items():
+            if item_id in blocked:
+                rej("blocked"); continue
+            if item_id in active_ids:
+                rej("already_active"); continue
+            if item_id not in mapping:
+                rej("no_mapping"); continue
+
+            daily_vol = volumes.get(item_id)
+            if daily_vol is None:
+                rej("no_daily_volume"); continue
+            if not (MIN_DAILY_VOLUME <= daily_vol <= MAX_DAILY_VOLUME):
+                rej("daily_volume_out_of_range"); continue
+
+            try:
+                low = int(lp.get("low", 0))
+                high = int(lp.get("high", 0))
+                if low <= 0 or high <= 0:
+                    rej("bad_prices"); continue
+                if low < MIN_BUY_PRICE:
+                    rej("below_min_buy_price"); continue
+
+                buy_price = low
+                sell_price = max(high - 1, 1)
+
+                margin = sell_price - buy_price
+                if margin < MIN_MARGIN_GP:
+                    rej("margin_too_small"); continue
+
+                profit_per = sell_price - buy_price - seller_tax(sell_price)
+                if profit_per < 1:
+                    rej("profit_after_tax_too_small"); continue
+
+                roi = profit_per / float(buy_price)
+                if roi < MIN_ROI:
+                    rej("roi_too_low"); continue
+                if roi > MAX_ROI:
+                    rej("roi_too_high"); continue
+
+                qty = per_slot_budget // buy_price
+                if qty <= 0:
+                    rej("qty_zero_budget"); continue
+
+                meta = mapping[item_id]
+                if meta.limit is not None:
+                    qty = min(qty, int(meta.limit))
+                if qty <= 0:
+                    rej("qty_zero_limit"); continue
+
+                mins = estimate_minutes_from_daily(qty, daily_vol)
+
+                # only reject EXTREMELY slow
+                if mins > TARGET_FILL_MINUTES * 3:
+                    rej("too_slow"); continue
+
+                expected_profit = profit_per * qty
+
+                # profit/minute with strong speed weighting
+                speed_weight = 1.7 / math.sqrt(max(mins, 0.25))
+                score = (expected_profit / max(mins, 0.25)) * speed_weight
+
+                candidates.append({
+                    "item_id": item_id,
+                    "name": meta.name,
+                    "price": buy_price,
+                    "quantity": qty,
+                    "expectedProfit": float(expected_profit),
+                    "expectedDuration": float(mins),
+                    "score": float(score),
+                })
+            except Exception:
+                rej("exception"); continue
+
+        if not candidates:
+            if DEBUG_REJECTIONS and reject_counts:
+                top = sorted(reject_counts.items(), key=lambda x: x[1], reverse=True)[:12]
+                print("[REJECTS] top reasons:", ", ".join([f"{k}={v}" for k, v in top]))
+            print(f"[STATUS] No buy candidates. Cash={coins}")
+            return jsonify(build_wait("Wait (no buy candidates)")), 200
+
+        candidates.sort(key=lambda x: x["score"], reverse=True)
+
+        buy_queue: List[Dict[str, Any]] = []
+        for c in candidates[:max(slots_open, 1)]:
+            open_position(led, int(c["item_id"]), int(c["quantity"]), int(c["price"]), str(c["name"]))
+            buy_queue.append(build_buy(int(empty_slot_id), int(c["item_id"]), str(c["name"]),
+                                      int(c["price"]), int(c["quantity"]),
+                                      float(c["expectedProfit"]), float(c["expectedDuration"])))
+
+        led["buy_queue"] = buy_queue[1:]
+        save_ledger(led)
+
+        first = buy_queue[0]
+        print(f"[SUGGESTION] BUY item_id={first['item_id']} qty={first['quantity']} price={first['price']} est_min={first['expectedDuration']:.2f}")
+        return jsonify(first), 200
+
+    if slots_open <= 0:
+        msg = "Wait (all 8 GE slots full)"
+        if done_exists:
+            msg += " — collect completed offers"
+        print(f"[SUGGESTION] {msg}")
+        return jsonify(build_wait(msg)), 200
+
+    msg = "Wait (no actionable move)"
+    print(f"[SUGGESTION] {msg}")
+    return jsonify(build_wait(msg)), 200
+
+# -------------------- Boot --------------------
+def main():
+    t = threading.Thread(target=prices.refresh_forever, daemon=True)
+    t.start()
+
+    print("--------------------------------------------------")
+    print("   SWAGFLIP BRAIN — ONLINE")
+    print("   POST /suggestion")
+    print(f"   Dashboard: http://{HOST}:{PORT}/dashboard" + ("" if not DASH_TOKEN else "?token=YOUR_TOKEN"))
+    print("--------------------------------------------------")
+
+    app.run(host=HOST, port=PORT, debug=False)
+
+if __name__ == "__main__":
+    main()
