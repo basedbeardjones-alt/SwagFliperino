@@ -1,2 +1,12 @@
 __pycache__/
 *.pyc
+
+# Patch files (Codex)
+*.patch
+*.diff
+codex.patch.py
+
+# Local runtime files
+*.db
+*.log
+*.log.*
