@@ -2812,6 +2812,7 @@ def client_transactions():
     return Response(bytes(buf), content_type="application/octet-stream")
 
 
+@app.route("/profit-tracking/client-flips-delta", methods=["POST","GET"])
 def client_flips_delta():
     # Expected body: { accountIdToSyncTime: { <int>: <int> } }
     payload = None
@@ -3006,12 +3007,6 @@ def visualize_flip():
 # ============================================================
 # ITEM PRICES ENDPOINT (msgpack) — supports GET + POST
 # ============================================================
-
-@app.route("/profit-tracking/client-flips-delta", methods=["POST","GET"])
-def profit_tracking_client_flips_delta():
-    # Some client builds poll this endpoint; return an empty payload to prevent 404 spam.
-    return Response(b"\x00" * 12, status=200, content_type="application/x-bytes")
-
 
 @app.route("/prices", methods=["GET", "POST"])
 def prices_endpoint():
